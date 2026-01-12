@@ -1,0 +1,95 @@
+/* ===============================
+   SECTION LAYOUT
+================================ */
+.certifications-section {
+  background-color: #fffdf2; /* soft cream */
+  padding: 80px 0;
+}
+
+/* ===============================
+   HEADING
+================================ */
+.certifications-heading {
+  font-family: 'Cinzel', serif;
+  font-size: 2.2rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 60px;
+  color: #111;
+}
+
+/* ===============================
+   CARD
+================================ */
+.certification-card {
+  border: 1px solid #d4af37;
+  border-radius: 0;
+  padding: 40px 25px;
+  background-color: #ffffff;
+  height: 100%;
+  transition: all 0.35s ease;
+}
+
+/* Hover effect */
+.certification-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.08);
+  background-color: #fffdf9;
+}
+
+/* ===============================
+   YEAR CIRCLE
+================================ */
+.cert-year-circle {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  border: 1.5px solid #d4af37;
+  color: #d4af37;
+  font-family: 'serif';
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  transition: all 0.35s ease;
+}
+
+/* Circle hover */
+.certification-card:hover .cert-year-circle {
+  background-color: #d4af37;
+  color: #ffffff;
+}
+
+/* ===============================
+   TEXT
+================================ */
+.cert-title {
+  font-family: 'serif';
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+  font-size: 0.9rem;
+  color: #111;
+}
+
+.cert-text {
+  font-family: Arial, sans-serif;
+  font-size: 0.85rem;
+  line-height: 1.7;
+  color: #555;
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 768px) {
+  .certifications-heading {
+    font-size: 1.8rem;
+  }
+
+  .certification-card {
+    padding: 30px 20px;
+  }
+}

@@ -1,0 +1,119 @@
+/* ======================
+   FOOTER BASE
+====================== */
+footer {
+  background-color: #1A1A1A;
+  width: 100%;
+  margin-top: 0px;
+  height: 50%;
+}
+
+/* ======================
+   LOGO
+====================== */
+.Footer-logo {
+  height: 100px;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+/* ======================
+   TYPOGRAPHY
+====================== */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+footer p,
+footer li,
+footer a {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* ======================
+   LINKS
+====================== */
+footer a {
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: #DC3545 !important;
+}
+
+/* ======================
+   SOCIAL ICONS
+====================== */
+.social-icon {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.social-icon.facebook { color: #0D6EFD; }
+.social-icon.instagram { color: #DC3545; }
+.social-icon.youtube { color: #DC3545; }
+.social-icon.whatsapp { color: #1DAA61; }
+
+.social-icon:hover {
+  transform: scale(1.2);
+  opacity: 0.85;
+}
+
+/* ======================
+   RESPONSIVE FIXES
+====================== */
+
+/* 🔽 Mobile Devices */
+@media (max-width: 576px) {
+  footer {
+    text-align: center;
+  }
+
+  .Footer-logo {
+    height: 75px;
+    margin-bottom: 10px;
+  }
+
+  footer h5 {
+    margin-top: 20px;
+    font-size: 16px;
+  }
+
+  footer ul {
+    padding-left: 0;
+  }
+
+  footer li {
+    margin-bottom: 6px;
+  }
+
+  .social-icon {
+    font-size: 1.6rem;
+  }
+}
+
+/* 🔽 Tablets */
+@media (max-width: 768px) {
+  .Footer-logo {
+    height: 85px;
+  }
+
+  footer p {
+    font-size: 13px;
+  }
+}
+
+/* 🔽 Laptops & Large Screens */
+@media (min-width: 992px) {
+  .Footer-logo {
+    height: 110px;
+  }
+
+  footer p,
+  footer li {
+    font-size: 14px;
+  }
+}

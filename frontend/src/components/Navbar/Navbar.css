@@ -1,0 +1,183 @@
+/* =========================
+   NAVBAR BASE
+========================= */
+
+.custom-navbar {
+  background-color: #FFFEF2;
+  padding: 6px 0;
+  min-height: 70px;
+}
+
+/* =========================
+   LOGO
+========================= */
+.navbar-logo {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+  transition: all 0.3s ease;
+}
+
+/* Tablet */
+@media (min-width: 576px) {
+  .navbar-logo {
+    height: 55px;
+  }
+}
+
+/* Desktop */
+@media (min-width: 992px) {
+  .navbar-logo {
+    height: 80px;
+    transform: translateX(-15px);
+  }
+}
+
+/* =========================
+   NAV LINKS
+========================= */
+.custom-navbar .nav-link {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  color: #222 !important;
+  padding: 6px 10px;
+}
+
+.custom-navbar .nav-link:hover {
+  color: #DC3545 !important;
+}
+
+/* Active link */
+.custom-navbar .nav-link.active {
+  color: #DC3545 !important;
+}
+
+/* =========================
+   TOGGLER (HAMBURGER)
+========================= */
+.navbar-toggler {
+  width: 32px;
+  height: 24px;
+  position: relative;
+}
+
+.navbar-toggler span {
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  background: #222;
+  left: 0;
+  transition: 0.3s;
+}
+
+.navbar-toggler span:nth-child(1) {
+  top: 0;
+}
+
+.navbar-toggler span:nth-child(2) {
+  top: 11px;
+}
+
+.navbar-toggler span:nth-child(3) {
+  bottom: 0;
+}
+
+/* =========================
+   DROPDOWN
+========================= */
+.dropdown-toggle::after {
+  margin-left: 6px;
+  vertical-align: middle;
+}
+
+.dropdown-menu {
+  border-radius: 8px;
+  padding: 8px 0;
+  min-width: 220px;
+}
+
+.dropdown-item {
+  font-size: 14px;
+  font-weight: 500;
+  padding: 8px 16px;
+}
+
+.dropdown-item:hover {
+  background-color: #FFF2F2;
+  color: #DC3545;
+}
+/* Remove default browser blue highlight on click/focus */
+.dropdown-item:focus,
+.dropdown-item:active {
+  background-color: #FFF2F2; /* your hover color */
+  color: #DC3545;             /* your text color */
+  outline: none;              /* remove focus outline */
+}
+
+/* =========================
+   MOBILE MENU
+========================= */
+@media (max-width: 991px) {
+  .navbar-collapse {
+    background-color: #FFFEF2;
+    padding: 15px;
+    border-top: 1px solid rgba(0,0,0,0.05);
+    border-radius: 0 0 12px 12px;
+  }
+
+  .navbar-nav {
+    gap: 0;
+  }
+
+  .nav-item {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+  }
+
+  .nav-item:last-child {
+    border-bottom: none;
+  }
+
+  /* Mobile dropdown open */
+  .dropdown-menu {
+    position: static;
+    float: none;
+    box-shadow: none;
+    background: rgba(0,0,0,0.03);
+  }
+
+  .dropdown-item {
+    text-align: center;
+  }
+}
+
+/* =========================
+   TABLET FIX (991–1200px)
+========================= */
+@media (min-width: 992px) and (max-width: 1200px) {
+  .navbar-nav {
+    gap: 8px !important;
+  }
+
+  .custom-navbar .nav-link {
+    font-size: 13px;
+  }
+}
+
+/* =========================
+   CALL NOW BUTTON
+========================= */
+.custom-navbar .btn-outline-danger {
+  font-size: 13px;
+  padding: 4px 12px;
+}
+
+/* =========================
+   TYPOGRAPHY GLOBAL
+========================= */
+h1, h2, h3 {
+  font-family: 'Cinzel', serif;
+  font-weight: 600;
+  letter-spacing: 1px;
+}

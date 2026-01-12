@@ -1,0 +1,156 @@
+/* ===============================
+   SECTION HEADING
+================================ */
+.core-values-heading {
+  font-family: 'Cinzel', serif;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: #1a1a1a;
+  font-size: 2.2rem;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+}
+
+/* ===============================
+   CORE VALUE CARD
+================================ */
+.value-card {
+  position: relative;
+  background-color: #ffffff !important;
+  border-radius: 4px;
+  overflow: hidden;
+  min-height: 250px;
+  padding: 25px;
+  transition: all 0.35s ease;
+}
+
+/* Hover Lift & Shadow */
+.value-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.08);
+}
+
+/* Gold Border on Hover */
+.value-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid transparent;
+  transition: border-color 0.35s ease;
+  pointer-events: none;
+}
+
+.value-card:hover::before {
+  border-color: #d4af37;
+}
+
+/* ===============================
+   GHOST NUMBER
+================================ */
+.value-number {
+  position: absolute;
+  top: -10px;
+  right: 10px;
+  font-size: 8rem;
+  font-family: serif;
+  font-weight: 900;
+  color: rgba(0, 0, 0, 0.03);
+  line-height: 1;
+  z-index: 0;
+  pointer-events: none;
+  transition: all 0.4s ease;
+}
+
+/* Ghost Number Hover Animation */
+.value-card:hover .value-number {
+  transform: scale(1.1);
+  color: rgba(220, 53, 69, 0.06);
+}
+
+/* ===============================
+   CONTENT TYPOGRAPHY
+================================ */
+.value-title {
+  font-family: serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  color: #222;
+  position: relative;
+  z-index: 1;
+  margin-top: 10px;
+  transition: color 0.3s ease;
+}
+
+.value-text {
+  font-family: Arial, sans-serif;
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.6;
+  position: relative;
+  z-index: 1;
+}
+
+/* Title Color Change on Hover */
+.value-card:hover .value-title {
+  color: #dc3545;
+}
+
+/* ===============================
+   VISION & MISSION CARD
+================================ */
+.vision-mission-card {
+  background-color: #ffffff !important;
+  border: 1px solid #d4af37 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 30px;
+  transition: all 0.35s ease;
+}
+
+/* Hover Effect */
+.vision-mission-card:hover {
+  background-color: #fffdf9 !important;
+  border-color: #b38b4d !important;
+  transform: translateY(-6px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+}
+
+/* ===============================
+   CARD TITLES & TEXT
+================================ */
+.card-title-gold {
+  color: #dc3545;
+  font-family: serif;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-size: 1.6rem;
+  transition: color 0.3s ease;
+}
+
+.card-text-main {
+  color: #333333;
+  font-family: Arial, sans-serif;
+  line-height: 1.8;
+  font-size: 1.05rem;
+  margin-bottom: 0;
+}
+
+/* Title Hover Effect */
+.vision-mission-card:hover .card-title-gold {
+  color: #b38b4d;
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 768px) {
+  .core-values-heading {
+    font-size: 1.8rem;
+  }
+
+  .value-number {
+    font-size: 6rem;
+  }
+}

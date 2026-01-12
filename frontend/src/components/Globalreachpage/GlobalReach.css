@@ -1,0 +1,124 @@
+/* Global Background */
+.hero-section,
+.map-section,
+.regions-section,
+.cta-section {
+  background-color: #FFFFE3;
+}
+
+/* HERO */
+.hero-section {
+  padding: 80px 0;
+}
+
+/* MAP */
+/* .map-card {
+  border-radius: 16px;
+}
+
+.world-map {
+  transition: transform 0.6s ease;
+}
+
+.world-map:hover {
+  transform: scale(1.03);
+} */
+
+/* REGIONS */
+.region-card {
+  border-radius: 14px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s ease;
+  background: #FFFFE3;
+}
+
+.region-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 26px rgba(125, 46, 46, 0.25);
+}
+
+.icon-animate {
+  transition: transform 0.4s ease;
+}
+
+.region-card:hover .icon-animate {
+  transform: scale(1.2) rotate(5deg);
+}
+
+/* CTA */
+.cta-section {
+  padding: 70px 0;
+}
+
+/* ANIMATIONS */
+.fade-up {
+  animation: fadeUp 1s ease forwards;
+}
+
+.fade-down {
+  animation: fadeDown 1s ease forwards;
+}
+
+.zoom-in {
+  animation: zoomIn 1s ease forwards;
+}
+
+/* review section */
+.review-card p {
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.review-card h6 {
+  margin-top: 12px;
+}
+
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* MOBILE OPTIMIZATION */
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 60px 20px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+}
+
