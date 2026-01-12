@@ -5,7 +5,7 @@ import carpetImg from "../../assets/about/about-carpet2.jpg";
 import onionImg from "../../assets/about/imagea.png";
 import marbaleImg from "../../assets/about/image1.png";
 import "./HomePage.css";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const HomePage = () => {
   const navigate = useNavigate(); // ✅ Add this
@@ -143,9 +143,12 @@ const HomePage = () => {
                   >
                     View Products
                   </button>
-                  <a href="/contact" className="btn btn-outline-light px-4">
+                  <button
+                    onClick={() => navigate("/contact")}
+                    className="btn btn-outline-light px-4"
+                  >
                     Get Quote
-                  </a>
+                  </button>
                 </div>
               </div>
             </div>
