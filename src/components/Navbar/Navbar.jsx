@@ -47,6 +47,29 @@ const Navbar = () => {
     }
   };
 
+  
+  const baseURL = import.meta.env.VITE_API_BASE_URL;
+  const [contactData, setContactData] = useState(null);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+         const res = await axios.get(`${baseURL}/contact-page`, {
+          params: {
+            domainName: "vivatasimpex.com",
+          },
+        });
+        setContactData(res.data);
+      } catch (err) {
+        console.error("Error loading contact page data:", err);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  if (!contactData) return <div>Loading…</div>;
+
   return (
     <nav
       className="navbar navbar-expand-lg sticky-top shadow-sm custom-navbar"
@@ -195,7 +218,7 @@ const Navbar = () => {
 
             <li className="nav-item ms-lg-2">
               <a
-                href="tel:+919763605135"
+                href={`tel:${contactData.phone}`}
                 className="btn btn-outline-danger px-1 py-0 fw-bold"
               >
                 CALL NOW

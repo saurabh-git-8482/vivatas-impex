@@ -13,9 +13,11 @@ const Footer = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get(
-          `https://adminapi.darchtech.com/api/contact-page?domainName=vivatasimpex.com`
-        );
+         const res = await axios.get(`${baseURL}/contact-page`, {
+          params: {
+            domainName: "vivatasimpex.com",
+          },
+        });
         setContactData(res.data);
       } catch (err) {
         console.error("Error loading contact page data:", err);
@@ -27,10 +29,12 @@ const Footer = () => {
 
   if (!contactData) return <div>Loading…</div>;
   const socialLinks = {
-    facebook: "https://www.facebook.com/",
+    facebook: "https://www.facebook.com/profile.php",
     instagram: "https://www.instagram.com/vivatas_impex/",
-    youtube: "https://www.youtube.com/",
-    whatsapp: "https://wa.me/+919763605135",
+    youtube: "https://www.youtube.com/@vivatasimpex",
+   whatsapp: `https://wa.me/${contactData.phone}`,
+
+    linkedin:"http://www.linkedin.com/in/vivatas-impex",
   };
 
   return (
@@ -111,27 +115,27 @@ const Footer = () => {
           <div className="col-12 col-md-6 col-lg-3 mb-4">
             <h6 className="fw-bold text-danger">CONTACT US</h6>
             <ul className="list-unstyled mt-3 small">
-              <li className="mb-2">
+              <li className="mb-1">
                 📍HEAD OFFICE : f 01 umbarda bazar nearby zp school main road
                 subdistrict:- karanja lad district washim, pin 444105
               </li>
               <li> {contactData.description}</li>
-              <br />
+              
 
-              <li className="mb-2">
+              <li className="mb-1">
                 📞{" "}
                 <a
-                  href="tel:+918275974638"
+                  href={`tel:${contactData.phone}`}
                   className="text-light text-decoration-none"
                 >
                   {contactData.phone}
                 </a>
               </li>
 
-              <li className="mb-3">
+              <li className="mb-1">
                 ✉️{" "}
                 <a
-                  href="mailto:prajwalkharadkar@outlook.com"
+                  href={`mailto:${contactData.email}`}
                   className="text-light text-decoration-none"
                 >
                   {contactData.email}
@@ -158,7 +162,7 @@ const Footer = () => {
         </div>
 
         {/* BOTTOM BAR */}
-        <div className="border-top border-secondary mt-4 pt-3 pb-3 text-center">
+        <div className="border-top border-secondary  pt-3 pb-3 text-center">
           <small>
             © {new Date().getFullYear()} Vivatas Impex. All Rights Reserved.
           </small>

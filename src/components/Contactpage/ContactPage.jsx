@@ -51,13 +51,12 @@ const ContactPage = () => {
   useEffect(() => {
     const fetchContactPage = async () => {
       try {
-       const res = await axios.get(`${baseURL}/contact-page`, {
-  params: {
-    domainName: "vivatasimpex.com",
-  },
-});
+        const res = await axios.get(`${baseURL}/contact-page`, {
+          params: {
+            domainName: "vivatasimpex.com",
+          },
+        });
 
-        
         setContactData(res.data);
       } catch (err) {
         console.error("Error loading contact page data:", err);
@@ -68,10 +67,11 @@ const ContactPage = () => {
   }, []);
 
   const socialLinks = {
-    facebook: "https://www.facebook.com/vivatasimpex",
+    facebook: "https://www.facebook.com/profile.php",
     instagram: "https://www.instagram.com/vivatas_impex/",
     youtube: "https://www.youtube.com/@vivatasimpex",
-    whatsapp: "https://wa.me/919763605135",
+    whatsapp: "https://wa.me/+919763605135",
+    linkedin: "http://www.linkedin.com/in/vivatas-impex",
   };
 
   if (!contactData) return <div className="text-center py-5">Loading...</div>;
@@ -79,7 +79,6 @@ const ContactPage = () => {
   return (
     <section className="py-5" style={{ backgroundColor: "#F6F5E8" }}>
       <div className="container px-3 px-md-0">
-
         {/* PAGE TITLE */}
         <div className="text-center mb-4 mb-md-5">
           <h2 className="fw-bold">{contactData.pageTitle || "Contact Us"}</h2>
@@ -87,10 +86,12 @@ const ContactPage = () => {
         </div>
 
         <div className="row g-4">
-
           {/* ================= LEFT CARD (UNCHANGED UI) ================= */}
           <div className="col-12 col-md-5">
-            <div className="card shadow-sm h-100" style={{ backgroundColor: "#F6F5E8" }}>
+            <div
+              className="card shadow-sm h-100"
+              style={{ backgroundColor: "#F6F5E8" }}
+            >
               <div className="card-body">
                 <h5 className="fw-bold mb-3">Vivatas Impex</h5>
 
@@ -101,17 +102,47 @@ const ContactPage = () => {
                 <p>⏰ {contactData.timing}</p>
 
                 <div className="d-flex gap-3 mt-3">
-                  <a href={socialLinks.facebook} target="_blank" rel="noreferrer" className="fs-4">
+                  <a
+                    href={socialLinks.facebook}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="fs-4"
+                  >
                     <i className="bi bi-facebook"></i>
                   </a>
-                  <a href={socialLinks.instagram} target="_blank" rel="noreferrer" className="text-danger fs-4">
+                  <a
+                    href={socialLinks.instagram}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-danger fs-4"
+                  >
                     <i className="bi bi-instagram"></i>
                   </a>
-                  <a href={socialLinks.youtube} target="_blank" rel="noreferrer" className="text-danger fs-4">
+                  <a
+                    href={socialLinks.youtube}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-danger fs-4"
+                  >
                     <i className="bi bi-youtube"></i>
                   </a>
-                  <a href={socialLinks.whatsapp} target="_blank" rel="noreferrer" className="fs-4" style={{ color: "#1DAA61" }}>
+                  <a
+                    href={socialLinks.whatsapp}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="fs-4"
+                    style={{ color: "#1DAA61" }}
+                  >
                     <i className="bi bi-whatsapp"></i>
+                  </a>
+                   <a
+                    href={socialLinks.linkedin}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="fs-4"
+                    style={{ color: "#0D6EFD" }}
+                  >
+                    <i className="bi bi-linkedin"></i>
                   </a>
                 </div>
               </div>
@@ -120,7 +151,10 @@ const ContactPage = () => {
 
           {/* ================= RIGHT FORM (UNCHANGED UI) ================= */}
           <div className="col-12 col-md-7">
-            <div className="card shadow-sm" style={{ backgroundColor: "#F6F5E8" }}>
+            <div
+              className="card shadow-sm"
+              style={{ backgroundColor: "#F6F5E8" }}
+            >
               <div className="card-body">
                 <h5 className="fw-bold mb-3">Send Us an Enquiry</h5>
 
@@ -132,7 +166,6 @@ const ContactPage = () => {
 
                 <form onSubmit={handleSubmit}>
                   <div className="row g-3">
-
                     <div className="col-md-6">
                       <input
                         type="text"
@@ -210,13 +243,11 @@ const ContactPage = () => {
                         Submit Enquiry
                       </button>
                     </div>
-
                   </div>
                 </form>
               </div>
             </div>
           </div>
-
         </div>
 
         {/* MAP */}
@@ -234,7 +265,6 @@ const ContactPage = () => {
             </div>
           </div>
         </div>
-
       </div>
     </section>
   );
