@@ -13,24 +13,6 @@ body {
   background-color: #f6f5e8;
 }
 
-/* ===============================
-   HERO SECTION
-================================ */
-/* .hero-section {
-  position: relative;
-  background-image: linear-gradient(
-      rgba(0, 0, 0, 0.6),
-      rgba(0, 0, 0, 0.6)
-    ), */
-    /* url("../../assets/homepage/image.png"); */
-  /* background-size: cover;     */
-  /* background-position: center; */
-  /* background-repeat: no-repeat; */
-
-  /* min-height: 70vh; */
-  /* display: flex; */
-  /* align-items: center; */
-/* } */
 
 /* hide mobile img on desktop */
 .hero-mobile-img {
@@ -133,7 +115,7 @@ body {
     align-items: center;
   }
 }
-@media (max-width: 360px) {
+@media (max-width: 768px) {
 
 .list-unstyled {
   margin-bottom: 0px;
@@ -152,22 +134,7 @@ body {
   overflow: hidden;
 }
 
-/* REAL IMAGE (NO CROPPING EVER) */
-/* .hero-image {
-  width: 100%;
-  height: auto;        
-  display: block;
-} */
 
-/* Overlay */
-/* .hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.6);
-
-  display: flex;
-  align-items: center;
-} */
 
 /* ===============================
    HERO SECTION – NO GAPS
@@ -245,14 +212,57 @@ height: 80vh;          /* 🔥 half of desktop screen height */
   }
 }
 
-@media (max-width: 768px) {
-  .hero-overlay {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-  }
+/* Section */
+.why-choose-section {
+  /* background-color: #F6F5E8; */
+  padding: 80px 0;
+  font-family: "Cinzel", serif;
 }
 
+/* Section Title */
+.why-choose-title {
+  text-align: center;
+  margin-bottom: 60px;
+  letter-spacing: 2px;
+  font-weight: 500;
+  color: #1a1a1a;
+  text-transform: uppercase;
+}
 
+/* Card */
+.why-choose-card {
+  background-color: #F3F2E9;
+  border: 1px solid #E5E2D0;
+  border-radius: 0;
+  height: 100%;
+  padding: 20px;
+}
 
+/* Card Title */
+.why-choose-card-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Card Text */
+.why-choose-card-text {
+  font-family: Arial, sans-serif;
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .why-choose-section {
+    padding: 50px 15px;
+  }
+
+  .why-choose-title {
+    font-size: 1.4rem;
+    margin-bottom: 40px;
+  }
+}

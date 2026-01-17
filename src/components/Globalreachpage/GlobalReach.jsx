@@ -1,4 +1,6 @@
 import { Container, Row, Col, Card } from "react-bootstrap";
+import { useEffect, useState } from "react";
+import axios from "axios";
 import worldMap from "../../assets/world-map.png";
 import "./GlobalReach.css";
 
@@ -13,34 +15,47 @@ const regions = [
   "Australia",
 ];
 
-const reviews = [
-  {
-    name: "Hrushikesh Gandhe",
-    country: "India",
-    text: "Professional, ethical, and quality-focused company. VIVATAS IMPEX has strong expertise in import export services, agricultural products, and handmade carpets. A reliable exporter with excellent customer support.",
-  },
-  {
-    name: "Atharva Gotmare",
-    country: "India",
-    text: "Quick and good service.",
-  },
-  {
-    name: "Prajwaal Kharadkar",
-    country: "India",
-    text: "VIVATAS IMPEX is a highly reliable import export company in India. Their quality of agricultural products, frozen foods, and handmade carpets is excellent. Professional service, timely delivery, and great export standards. Highly recommended for global buyers.",
-  },
-];
+const baseURL = import.meta.env.VITE_API_BASE_URL;
 
 const GlobalReach = () => {
+  const [reviews, setReviews] = useState([]);
+
+ useEffect(() => {
+  const fetchReviews = async () => {
+    try {
+      const res = await axios.get(`${baseURL}/reviews`, {
+        params: {
+          domainName: "vivatasimpex.com",
+          limit: 6,
+        },
+      });
+
+      // ✅ FORCE ARRAY EXTRACTION
+      let reviewArray = [];
+
+      if (Array.isArray(res.data)) {
+        reviewArray = res.data;
+      } else if (Array.isArray(res.data.data)) {
+        reviewArray = res.data.data;
+      } else if (Array.isArray(res.data.reviews)) {
+        reviewArray = res.data.reviews;
+      }
+
+      setReviews(reviewArray);
+    } catch (error) {
+      console.error("Review fetch failed:", error);
+      setReviews([]);
+    }
+  };
+
+  fetchReviews();
+}, []);
+
+
   return (
     <>
       {/* HERO SECTION */}
-      <section
-        className="py-5 text-dark"
-        style={{
-          backgroundColor: "#F6F5E8",
-        }}
-      >
+      <section className="py-5 text-dark" style={{ backgroundColor: "#F6F5E8" }}>
         <Container>
           <Row className="align-items-center">
             <Col md={12} className="text-center">
@@ -55,7 +70,7 @@ const GlobalReach = () => {
       </section>
 
       {/* MAP SECTION */}
-      <section className="py-0 " style={{ backgroundColor: "#F6F5E8" }}>
+      <section className="py-0" style={{ backgroundColor: "#F6F5E8" }}>
         <Container>
           <Row>
             <Col md={12} className="text-center mb-4">
@@ -115,10 +130,7 @@ const GlobalReach = () => {
       </section>
 
       {/* CTA SECTION */}
-      <section
-        className="partner-section"
-        style={{ backgroundColor: "#F6F5E8" }}
-      >
+      {/* <section className="partner-section" style={{ backgroundColor: "#F6F5E8" }}>
         <Container>
           <div className="partner-content mx-0px">
             <h2 className="partner-heading">Partner With Vivatas Impex</h2>
@@ -126,32 +138,15 @@ const GlobalReach = () => {
               Delivering frozen foods, dehydrated products, and handmade carpets
               worldwide with reliability and trust.
             </p>
-            <p className="partner-text ">
+            <p className="partner-text">
               At <strong>Vivatas Impex</strong>, we focus on building long-term,
               transparent, and mutually beneficial partnerships across global
-              markets. Our commitment to quality, timely delivery, and ethical
-              sourcing positions us as a trusted export partner worldwide. We
-              collaborate closely with distributors, importers, wholesalers,
-              retailers, and hospitality brands to deliver premium products that
-              meet international standards and customer expectations.
+              markets.
             </p>
-            <div className="partner-highlights">
-              <h5 className="partner-list-title">Why Partner With Us?</h5>
-
-              <ul className="partner-list">
-                <li>Consistent product quality & global compliance</li>
-                <li>Strong cold-chain and export logistics network</li>
-                <li>Custom packaging & private labeling options</li>
-                <li>Competitive pricing with reliable supply</li>
-                <li>Dedicated export support & transparent communication</li>
-              </ul>
-            </div>
-            Whether expanding into new markets or strengthening supply chains,
-            <strong> Vivatas Impex</strong> is your reliable global partner for
-            sustainable growth.
           </div>
         </Container>
-      </section>
+      </section> */}
+
       {/* REVIEWS SECTION */}
       <section className="py-5" style={{ backgroundColor: "#F6F5E8" }}>
         <Container>
@@ -165,23 +160,34 @@ const GlobalReach = () => {
           </Row>
 
           <Row>
-            {reviews.map((review, index) => (
-              <Col md={4} sm={12} key={index} className="mb-4">
-                <Card className="h-100 shadow-sm border-0">
-                  <Card.Body className="text-center">
-                    <div className="mb-2 text-warning fs-5">★★★★★</div>
+  {reviews.length > 0 ? (
+    reviews.map((review, index) => (
+      <Col md={4} sm={12} key={index} className="mb-4">
+        <Card className="h-100 shadow-sm border-0">
+          <Card.Body className="text-center">
+            <div className="mb-2 text-warning fs-5">
+              {"★".repeat(review.rating || 0)}
+              {"☆".repeat(5 - (review.rating || 0))}
+            </div>
 
-                    <p className="fst-italic text-muted">“{review.text}”</p>
+            <p className="fst-italic text-muted">
+              “{review.feedback}”
+            </p>
 
-                    <h6 className="fw-semibold mb-0">{review.name}</h6>
-                    <small className="text-muted">{review.country}</small>
-                  </Card.Body>
-                </Card>
-              </Col>
-            ))}
-          </Row>
+            <h6 className="fw-semibold mb-0">{review.name}</h6>
+            <small className="text-muted">{review.location}</small>
+          </Card.Body>
+        </Card>
+      </Col>
+    ))
+  ) : (
+    <Col className="text-center text-muted">
+      No reviews available
+    </Col>
+  )}
+</Row>
 
-          {/* GOOGLE REVIEW LINK */}
+
           <Row className="mt-4">
             <Col className="text-center">
               <a
@@ -190,7 +196,7 @@ const GlobalReach = () => {
                 rel="noopener noreferrer"
                 className="btn btn-danger px-4 py-2"
               >
-                ⭐ Leave a Google Review
+                ⭐ View a Google Reviews
               </a>
             </Col>
           </Row>

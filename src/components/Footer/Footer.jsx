@@ -13,7 +13,7 @@ const Footer = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-         const res = await axios.get(`${baseURL}/contact-page`, {
+        const res = await axios.get(`${baseURL}/contact-page`, {
           params: {
             domainName: "vivatasimpex.com",
           },
@@ -29,12 +29,13 @@ const Footer = () => {
 
   if (!contactData) return <div>Loading…</div>;
   const socialLinks = {
-    facebook: "https://www.facebook.com/profile.php",
+    facebook:
+      "https://www.facebook.com/people/Vivatas-Impex/pfbid02NVgJxJNC887uW2idQd1ZDsdxcYTUGF3NZwFyXA92DF7K7qkSEa31jW2foWqM1g8sl/",
     instagram: "https://www.instagram.com/vivatas_impex/",
     youtube: "https://www.youtube.com/@vivatasimpex",
-   whatsapp: `https://wa.me/${contactData.phone}`,
+    whatsapp: `https://wa.me/${contactData.phone}`,
 
-    linkedin:"http://www.linkedin.com/in/vivatas-impex",
+    linkedin: "http://www.linkedin.com/in/vivatas-impex",
   };
 
   return (
@@ -68,7 +69,10 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/Certificates" className="text-light text-decoration-none">
+                <Link
+                  to="/Certificates"
+                  className="text-light text-decoration-none"
+                >
                   Certificates
                 </Link>
               </li>
@@ -120,7 +124,6 @@ const Footer = () => {
                 subdistrict:- karanja lad district washim, pin 444105
               </li>
               <li> {contactData.description}</li>
-              
 
               <li className="mb-1">
                 📞{" "}

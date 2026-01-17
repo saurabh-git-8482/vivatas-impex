@@ -154,3 +154,59 @@
     font-size: 6rem;
   }
 }
+
+
+
+.why-choose-section {
+  /* background-color: #F6F5E8; */
+  padding: 80px 0;
+  font-family: "Cinzel", serif;
+}
+
+/* Section Title */
+.why-choose-title {
+  text-align: center;
+  margin-bottom: 60px;
+  letter-spacing: 2px;
+  font-weight: 500;
+  color: #1a1a1a;
+  text-transform: uppercase;
+}
+
+/* Card */
+.why-choose-card {
+  background-color: #F3F2E9;
+  border: 1px solid #E5E2D0;
+  border-radius: 0;
+  height: 100%;
+  padding: 20px;
+}
+
+/* Card Title */
+.why-choose-card-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Card Text */
+.why-choose-card-text {
+  font-family: Arial, sans-serif;
+  font-size: 0.9rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .why-choose-section {
+    padding: 50px 15px;
+  }
+
+  .why-choose-title {
+    font-size: 1.4rem;
+    margin-bottom: 40px;
+  }
+}

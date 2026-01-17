@@ -62,44 +62,7 @@ const features = [
     text: "We follow environmentally conscious sourcing and logistics practices, supporting long-term sustainability and ethical business.",
   },
 ];
-const sectionStyle = {
-  // backgroundColor: "#F9F7F0", // Exact cream background from image
-  padding: "80px 0",
-  fontFamily: '"Cinzel", serif', // Header font
-};
 
-const titleStyle = {
-  textAlign: "center",
-  marginBottom: "60px",
-  letterSpacing: "2px",
-  fontWeight: "500",
-  color: "#1a1a1a",
-  textTransform: "uppercase",
-};
-
-const cardStyle = {
-  backgroundColor: "#F3F2E9z", // Slightly darker cream for the cards
-  border: "1px solid #E5E2D0",
-  borderRadius: "0px", // Sharp corners as seen in the image
-  height: "100%",
-  padding: "20px",
-};
-
-const cardTitleStyle = {
-  fontSize: "1.1rem",
-  fontWeight: "600",
-  color: "#333",
-  marginBottom: "15px",
-  textTransform: "uppercase",
-  letterSpacing: "1px",
-};
-
-const cardTextStyle = {
-  fontFamily: '"Arial", sans-serif', // Clean body font
-  fontSize: "0.9rem",
-  color: "#555",
-  lineHeight: "1.6",
-};
 const AboutPage = () => {
   return (
     <section className="py-5 " style={{ backgroundColor: "#FFFEF2" }}>
@@ -148,7 +111,6 @@ const AboutPage = () => {
           </Col>
         </Row>
 
-       
         <section
           className="values-section py-5"
           // style={{ backgroundColor: "#f9f7f0" }}
@@ -207,16 +169,17 @@ const AboutPage = () => {
             </Card>
           </Col>
         </Row>
-        <section style={sectionStyle}>
+        <section className="why-choose-section">
           <Container>
-            <h2 style={titleStyle}>Why Choose Vivatas Impex</h2>
+            <h2 className="why-choose-title">Why Choose Vivatas Impex</h2>
+
             <Row className="g-4">
               {features.map((item, index) => (
                 <Col key={index} xs={12} md={6} lg={4}>
-                  <Card style={cardStyle} className="shadow-none">
+                  <Card className="why-choose-card shadow-none">
                     <Card.Body>
-                      <h5 style={cardTitleStyle}>{item.title}</h5>
-                      <p style={cardTextStyle}>{item.text}</p>
+                      <h5 className="why-choose-card-title">{item.title}</h5>
+                      <p className="why-choose-card-text">{item.text}</p>
                     </Card.Body>
                   </Card>
                 </Col>

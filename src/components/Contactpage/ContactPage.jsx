@@ -65,12 +65,13 @@ const ContactPage = () => {
 
     fetchContactPage();
   }, []);
+   if (!contactData) return <div>Loading…</div>;
 
   const socialLinks = {
     facebook: "https://www.facebook.com/profile.php",
     instagram: "https://www.instagram.com/vivatas_impex/",
     youtube: "https://www.youtube.com/@vivatasimpex",
-    whatsapp: "https://wa.me/+919763605135",
+    whatsapp: `https://wa.me/${contactData.phone}`,
     linkedin: "http://www.linkedin.com/in/vivatas-impex",
   };
 
@@ -135,7 +136,7 @@ const ContactPage = () => {
                   >
                     <i className="bi bi-whatsapp"></i>
                   </a>
-                   <a
+                  <a
                     href={socialLinks.linkedin}
                     target="_blank"
                     rel="noreferrer"
@@ -251,16 +252,21 @@ const ContactPage = () => {
         </div>
 
         {/* MAP */}
+        {/* MAP (DYNAMIC FROM BACKEND) */}
+        {/* MAP (ADDRESS → MAP AUTO) */}
         <div className="row mt-5">
           <div className="col-12">
             <div className="card shadow-sm">
               <iframe
-                title="Vivatas Impex Location"
-                src="https://www.google.com/maps?q=F01+Umbarda+Bazar+Near+ZP+School+Main+Road&output=embed"
+                title="Location Map"
+                src={`https://www.google.com/maps?q=${encodeURIComponent(
+                  contactData.description
+                )}&output=embed`}
                 width="100%"
                 height="350"
                 style={{ border: 0 }}
                 loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
               />
             </div>
           </div>

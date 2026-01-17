@@ -17,7 +17,7 @@ const blogs = [
     title: "Benefits of Frozen Sweet Corn for Global Trade",
     date: "10 Jan 2026",
     author: "Vivatas Impex",
-    category: "Frozen Foods",
+    // category: "Frozen Foods",
     description:
       "Frozen sweet corn retains freshness, nutrition, and taste, making it a preferred choice for bulk exports and global food industries.",
     image: frozenimg,
@@ -85,7 +85,7 @@ const BlogPage = () => {
             </div>
 
             {/* Category filter pills (static UI for now) */}
-            <div className="d-flex flex-wrap gap-2">
+            {/* <div className="d-flex flex-wrap gap-2">
               <Button variant="danger" size="sm" className="rounded-pill">
                 All
               </Button>
@@ -114,7 +114,7 @@ const BlogPage = () => {
               >
                 Handicrafts
               </Button>
-            </div>
+            </div> */}
           </div>
 
           {/* Main grid: left featured, right list */}
@@ -131,9 +131,9 @@ const BlogPage = () => {
                     alt={featured.title}
                     className="blog-feature-img"
                   />
-                  <div className="blog-feature-tag">
+                  {/* <div className="blog-feature-tag">
                     <span>{featured.category}</span>
-                  </div>
+                  </div> */}
                 </div>
 
                 <Card.Body className="p-4">
@@ -186,9 +186,9 @@ const BlogPage = () => {
                           <Card.Text className="text-muted small mb-1">
                             {blog.description}
                           </Card.Text>
-                          <span className="text-muted extra-small more-link">
+                          {/* <span className="text-muted extra-small more-link">
                             Read more →
-                          </span>
+                          </span> */}
                         </Card.Body>
                       </Col>
                     </Row>
