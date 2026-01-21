@@ -1,0 +1,64 @@
+/* Main language button */
+.lang-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  border: 1px solid #dc3545;
+  color: #dc3545;
+  background: transparent;
+
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+
+  padding: 4px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+}
+
+/* Hover effect */
+.lang-btn:hover {
+  background: #dc3545;
+  color: #fff;
+}
+
+/* ENG text */
+.lang-text {
+  pointer-events: none;
+}
+
+/* Arrow */
+.lang-arrow {
+  font-size: 10px;
+  pointer-events: none;
+}
+
+/* Hide Google branding */
+/* .goog-logo-link,
+.goog-te-gadget span {
+  display: none !important;
+} */
+
+/* Invisible but clickable select */
+.goog-te-gadget select {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Remove top Google banner */
+.goog-te-banner-frame,
+.goog-te-banner-frame.skiptranslate {
+  display: none !important;
+}
+
+body {
+  top: 0 !important;
+}

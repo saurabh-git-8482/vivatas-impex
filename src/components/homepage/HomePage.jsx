@@ -1,10 +1,10 @@
 
 import { Container, Row, Col, Card } from "react-bootstrap";
-import pic from "../../assets/homepage/image.png";
+import pic from "../../assets/homepage/image.jpeg";
 import frozenImg from "../../assets/about/about-frozen-food.jpg";
 import carpetImg from "../../assets/about/about-carpet2.jpg";
-import onionImg from "../../assets/about/imagea.png";
-import marbaleImg from "../../assets/about/image1.png";
+import onionImg from "../../assets/about/imagea.jpeg";
+import marbaleImg from "../../assets/about/image1.jpeg";
 import "./HomePage.css";
 import { useNavigate } from "react-router-dom";
 
@@ -159,7 +159,7 @@ const HomePage = () => {
       ))}
 
       {/* ================= FEATURES ================= */}
-    <section className="why-choose-section">
+    <section className="why-choose-section" style={{backgroundColor:"#F6F5E8"}}>
   <Container>
     <h2 className="why-choose-title">Why Choose Vivatas Impex</h2>
 

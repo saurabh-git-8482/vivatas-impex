@@ -4,35 +4,97 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>frontend</title>
+    <title>Vivatas-Impex</title>
+
+    <!-- Google Fonts -->
     <link
       href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Lato:wght@300;400;500;600&display=swap"
       rel="stylesheet"
     />
-   
 
+    <!-- Bootstrap CSS -->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
       rel="stylesheet"
-      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
       crossorigin="anonymous"
     />
+
+    <!-- Google Translate basic styling fix -->
+    <style>
+      /* Hide Google top banner */
+      .goog-te-banner-frame.skiptranslate {
+        display: none !important;
+      }
+
+      body {
+        top: 0px !important;
+      }
+
+      /* Hide Google logo */
+      .goog-logo-link {
+        display: none !important;
+      }
+
+      .goog-te-gadget {
+        font-size: 0px;
+      }
+
+      /* Show dropdown properly */
+      .goog-te-gadget select {
+        font-size: 14px !important;
+        padding: 6px 8px;
+        border-radius: 6px;
+      }
+
+      /* Position translator (top-right) */
+      #google_translate_element {
+        position: fixed;
+        top: 0px;
+        right: 20px;
+        z-index: 9999;
+      }
+    </style>
   </head>
+
   <body>
-    <!-- Add this before </body> -->
-<script>
-  var tag = document.createElement('script');
-  tag.src = "https://www.youtube.com/iframe_api";
-  var firstScriptTag = document.getElementsByTagName('script')[0];
-  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-</script>
+    <!-- 🔤 Google Translate Dropdown -->
+    <div id="google_translate_element"></div>
+
+    <!-- React root -->
     <div id="root"></div>
+
+    <!-- React/Vite entry -->
     <script type="module" src="/src/main.jsx"></script>
+
+    <!-- Bootstrap JS -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
       crossorigin="anonymous"
     ></script>
+
+    <!-- YouTube iframe API (safe) -->
     
+
+    <!-- ✅ Google Translate Init -->
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement(
+          {
+            pageLanguage: "en",
+            includedLanguages: "en,hi,mr,fr,de,es",
+            layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+          },
+          "google_translate_element"
+        );
+      }
+    </script>
+
+    <!-- Google Translate Script -->
+    <script
+      type="text/javascript"
+      src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+    ></script>
+
+  
   </body>
 </html>

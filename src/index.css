@@ -1,12 +1,19 @@
-h1, h2, h3,h4,h5,h6 .section-title {
-  font-family: "Cinzel", serif;
+#google_translate_element {
+  display: block !important;
+  top: 0px;
 }
 
-body, .nav-link, p {
-  font-family: "Lato", sans-serif;
+.goog-te-combo {
+  padding: px;
+  border-radius: 4px;
+  font-size: 14px;
 }
 
-html, body {
-  width: 100%;
-  overflow-x: hidden;
+/* Top banner hide (safe) */
+iframe.goog-te-banner-frame {
+  display: none !important;
+}
+
+body {
+  top: 0px !important;
 }

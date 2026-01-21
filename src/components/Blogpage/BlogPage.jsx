@@ -5,7 +5,7 @@ import frozenimg from "../../assets/about/about-frozen-food.jpg";
 import peasimg from "../../assets/peas.jpg";
 import onionimg from "../../assets/onion.jpg";
 import carpetimg from "../../assets/carpet.jpg";
-import mixedvegimg from "../../assets/blogimage/vegi.png"
+import mixedvegimg from "../../assets/blogimage/vegi.jpeg"
 
 
 import { useNavigate } from "react-router-dom";
@@ -84,37 +84,7 @@ const BlogPage = () => {
               </p>
             </div>
 
-            {/* Category filter pills (static UI for now) */}
-            {/* <div className="d-flex flex-wrap gap-2">
-              <Button variant="danger" size="sm" className="rounded-pill">
-                All
-              </Button>
-              <Button
-                variant="outline-danger"
-                size="sm"
-                className="rounded-pill"
-                onClick={() => navigate("/products/premium-fresh-vegetables-&-frozen-foods")}
-                
-              >
-                Frozen Foods
-              </Button>
-              <Button
-                variant="outline-danger"
-                size="sm"
-                className="rounded-pill"
-                onClick={() => navigate("/products/fine-textiles-&-fabrics")}
-              >
-                Fine Textiles
-              </Button>
-              <Button
-                variant="outline-danger"
-                size="sm"
-                className="rounded-pill"
-                onClick={() => navigate("/products/artisan-handwoven-carpets")}
-              >
-                Handicrafts
-              </Button>
-            </div> */}
+          
           </div>
 
           {/* Main grid: left featured, right list */}
@@ -131,9 +101,7 @@ const BlogPage = () => {
                     alt={featured.title}
                     className="blog-feature-img"
                   />
-                  {/* <div className="blog-feature-tag">
-                    <span>{featured.category}</span>
-                  </div> */}
+                
                 </div>
 
                 <Card.Body className="p-4">
@@ -186,9 +154,7 @@ const BlogPage = () => {
                           <Card.Text className="text-muted small mb-1">
                             {blog.description}
                           </Card.Text>
-                          {/* <span className="text-muted extra-small more-link">
-                            Read more →
-                          </span> */}
+                          
                         </Card.Body>
                       </Col>
                     </Row>

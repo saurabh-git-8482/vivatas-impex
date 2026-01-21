@@ -69,7 +69,7 @@ const ContactPage = () => {
 
   const socialLinks = {
     facebook: "https://www.facebook.com/profile.php",
-    instagram: "https://www.instagram.com/vivatas_impex/",
+    instagram: "https://www.instagram.com/vivatasimpex?igsh=dThneWNmM2w2aXNp",
     youtube: "https://www.youtube.com/@vivatasimpex",
     whatsapp: `https://wa.me/${contactData.phone}`,
     linkedin: "http://www.linkedin.com/in/vivatas-impex",

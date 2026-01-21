@@ -31,7 +31,7 @@ const Footer = () => {
   const socialLinks = {
     facebook:
       "https://www.facebook.com/people/Vivatas-Impex/pfbid02NVgJxJNC887uW2idQd1ZDsdxcYTUGF3NZwFyXA92DF7K7qkSEa31jW2foWqM1g8sl/",
-    instagram: "https://www.instagram.com/vivatas_impex/",
+    instagram: "https://www.instagram.com/vivatasimpex?igsh=dThneWNmM2w2aXNp",
     youtube: "https://www.youtube.com/@vivatasimpex",
     whatsapp: `https://wa.me/${contactData.phone}`,
 

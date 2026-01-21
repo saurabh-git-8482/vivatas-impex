@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import lg from "../../../public/logo.png";
 import "./Navbar.css";
+import LanguageSwitcher from "../LanguageSwitcher";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -227,6 +228,11 @@ const Navbar = () => {
           </ul>
         </div>
       </div>
+
+ <header className="d-flex justify-content-end p-2">
+      <LanguageSwitcher />
+    </header>
+
     </nav>
   );
 };
