@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import lg from "../../../public/logo.png";
+import lg from "../../assets/logo.png";
 import "bootstrap-icons/font/bootstrap-icons.css";
 
 import "./Footer.css"; // Import custom CSS for Footer

@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-
+import "./languageSwitcher.css"
 
 const LanguageSwitcher = () => {
   useEffect(() => {
@@ -23,7 +23,7 @@ const LanguageSwitcher = () => {
     }
   }, []);
 
-  return <div id="google_translate_element">🌍</div>;
+  return <div id="google_translate_element"></div>;
 };
 
 export default LanguageSwitcher;

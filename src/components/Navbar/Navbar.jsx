@@ -1,7 +1,7 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import lg from "../../../public/logo.png";
+import lg from "../../assets/logo.png";
 import "./Navbar.css";
 import LanguageSwitcher from "../LanguageSwitcher";
 
@@ -48,14 +48,13 @@ const Navbar = () => {
     }
   };
 
-  
   const baseURL = import.meta.env.VITE_API_BASE_URL;
   const [contactData, setContactData] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-         const res = await axios.get(`${baseURL}/contact-page`, {
+        const res = await axios.get(`${baseURL}/contact-page`, {
           params: {
             domainName: "vivatasimpex.com",
           },
@@ -225,14 +224,12 @@ const Navbar = () => {
                 CALL NOW
               </a>
             </li>
+            <li className="nav-item d-flex align-items-center p-1 ">
+              <LanguageSwitcher />
+            </li>
           </ul>
         </div>
       </div>
-
- <header className="d-flex justify-content-end p-2">
-      <LanguageSwitcher />
-    </header>
-
     </nav>
   );
 };

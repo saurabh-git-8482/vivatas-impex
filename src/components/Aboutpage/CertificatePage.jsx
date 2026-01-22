@@ -2,14 +2,7 @@ import { useState } from "react";
 import { Modal } from "react-bootstrap";
 
 import cert1 from "../../assets/certificates/cert1.jpg";
-import cert2 from "../../assets/certificates/cert2.jpg";
-import cert3 from "../../assets/certificates/cert3.jpg";
-import cert4 from "../../assets/certificates/cert4.jpg";
 
-import fssai from "../../assets/certificates/logos/fssai.png";
-import iso from "../../assets/certificates/logos/iso.png";
-import gst from "../../assets/certificates/logos/gst.png";
-import iec from "../../assets/certificates/logos/iec.png";
 
 const certificates = [
   {
@@ -17,30 +10,7 @@ const certificates = [
     title: "Startup India Recognition",
     image: cert1,
   },
-  {
-    id: 2,
-    title: "ISO Certification",
-    image: cert2,
-    logo: iso,
-  },
-  {
-    id: 3,
-    title: "GST Registration",
-    image: cert3,
-    logo: gst,
-  },
-  {
-    id: 4,
-    title: "IEC Certificate",
-    image: cert4,
-    logo: iec,
-  },
-  {
-    id: 5,
-    title: "FSSAI License",
-    image: cert1,
-    logo: fssai,
-  },
+ 
 ];
 
 const Certificates = () => {
