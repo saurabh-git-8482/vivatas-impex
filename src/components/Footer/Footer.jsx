@@ -70,7 +70,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  to="/Certificates"
+                  to="/"
                   className="text-light text-decoration-none"
                 >
                   Certificates

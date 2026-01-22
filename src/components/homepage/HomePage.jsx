@@ -7,6 +7,7 @@ import onionImg from "../../assets/about/imagea.jpeg";
 import marbaleImg from "../../assets/about/image1.jpeg";
 import "./HomePage.css";
 import { useNavigate } from "react-router-dom";
+import Certificates from "../Aboutpage/CertificatePage";
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -113,21 +114,9 @@ const HomePage = () => {
       </section>
 
       {/* ================= INTRO ================= */}
-      <section className="py-5 text-center text-dark intro-section">
-        <div className="container">
-          <h1 className="fw-bold">Vivatas Impex</h1>
-          <p className="lead">
-            Exporter of Frozen Foods, Dehydrated Vegetables & Handicrafts
-          </p>
-          <button
-            onClick={() => navigate("/certificates")}
-            className="btn btn-danger fw-bold px-4"
-          >
-            View Certificates
-          </button>
-        </div>
-      </section>
-
+      <div>
+        <Certificates/>
+      </div>
       {/* ================= PRODUCTS ================= */}
       {productSections.map((item, index) => (
         <section className="py-4 py-md-5 product-section" key={index}>

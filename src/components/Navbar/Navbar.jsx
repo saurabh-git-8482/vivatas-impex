@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import lg from "../../assets/logo.png";
 import "./Navbar.css";
-import LanguageSwitcher from "../LanguageSwitcher";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -108,8 +107,19 @@ const Navbar = () => {
               </NavLink>
             </li>
 
+             <li className="nav-item">
+              <NavLink
+                to="/about"
+                className="nav-link fw-bold"
+                onClick={() => handleNavClick("/about")}
+              >
+                ABOUT
+              </NavLink>
+            </li>
+
+
             {/* ===== ABOUT DROPDOWN ===== */}
-            <li className="nav-item dropdown">
+            {/* <li className="nav-item dropdown">
               <span
                 className="nav-link dropdown-toggle fw-bold"
                 role="button"
@@ -140,7 +150,7 @@ const Navbar = () => {
                   </NavLink>
                 </li>
               </ul>
-            </li>
+            </li> */}
 
             {/* ===== PRODUCTS DROPDOWN ===== */}
             <li className={`nav-item dropdown ${isProductOpen ? "show" : ""}`}>
@@ -224,9 +234,7 @@ const Navbar = () => {
                 CALL NOW
               </a>
             </li>
-            <li className="nav-item d-flex align-items-center p-1 ">
-              <LanguageSwitcher />
-            </li>
+            
           </ul>
         </div>
       </div>

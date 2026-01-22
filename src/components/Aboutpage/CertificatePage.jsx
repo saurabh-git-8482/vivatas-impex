@@ -1,19 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Modal } from "react-bootstrap";
 
-import cert1 from "../../assets/certificates/cert1.jpg";
-
-
-const certificates = [
-  {
-    id: 1,
-    title: "Startup India Recognition",
-    image: cert1,
-  },
- 
-];
-
 const Certificates = () => {
+  const [certificates, setCertificates] = useState([]);
+  const [loading, setLoading] = useState(true);
+
   const [show, setShow] = useState(false);
   const [selectedImg, setSelectedImg] = useState(null);
   const [title, setTitle] = useState("");
@@ -24,10 +15,29 @@ const Certificates = () => {
     setShow(true);
   };
 
-  return (
-    <section className="py-5" style={{ backgroundColor: "#FFFEF2" }}>
-      <div className="container">
+  // 🔹 Fetch certificates from backend
+  useEffect(() => {
+    const fetchCertificates = async () => {
+      try {
+        const response = await fetch(
+          "https://your-backend-api.com/api/certificates"
+        );
 
+        const data = await response.json();
+        setCertificates(data);
+      } catch (error) {
+        console.error("Failed to fetch certificates", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchCertificates();
+  }, []);
+
+  return (
+    <section className="py-5" style={{ backgroundColor: "#F6F5E8" }}>
+      <div className="container">
         {/* HEADER */}
         <div className="text-center mb-5">
           <h2 className="fw-bold">Certificates</h2>
@@ -36,34 +46,30 @@ const Certificates = () => {
           </p>
         </div>
 
+        {/* LOADING */}
+        {loading && (
+          <div className="text-center">
+            <p>Loading certificates...</p>
+          </div>
+        )}
+
         {/* GRID */}
-        <div className="row g-4">
+        <div className="row g-5">
           {certificates.map((item) => (
-            <div className="col-12 col-sm-6 col-md-4 col-lg-3" key={item.id}>
+            <div key={item.id} className="col-12 col-md-6 col-lg-4">
               <div
-                className="card h-100 shadow-sm border-0 text-center certificate-card"
+                className="card certificate-structure border-0 shadow-sm h-100"
                 onClick={() => openModal(item.image, item.title)}
                 style={{ cursor: "pointer" }}
               >
-                <div className="p-3">
-                  <img
-                    src={item.image}
-                    alt={item.title}
-                    className="img-fluid"
-                    style={{ maxHeight: "260px", objectFit: "contain" }}
-                  />
-                </div>
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="card-img-top"
+                />
 
-                <div className="pb-3">
-                  <h6 className="fw-semibold">{item.title}</h6>
-
-                  {item.logo && (
-                    <img
-                      src={item.logo}
-                      alt={item.title}
-                      style={{ height: "36px", marginTop: "8px" }}
-                    />
-                  )}
+                <div className="card-body text-center">
+                  <h6 className="fw-semibold mb-0">{item.title}</h6>
                 </div>
               </div>
             </div>
@@ -71,7 +77,7 @@ const Certificates = () => {
         </div>
       </div>
 
-      {/* MODAL (ONE TIME ONLY) */}
+      {/* MODAL */}
       <Modal show={show} onHide={() => setShow(false)} centered size="lg">
         <Modal.Header closeButton>
           <Modal.Title>{title}</Modal.Title>
