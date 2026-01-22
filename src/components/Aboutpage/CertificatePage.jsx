@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
-import { Modal } from "react-bootstrap";
+import { Modal, Spinner } from "react-bootstrap";
 
-// Fallback/local certificate (optional)
-import cert1 from "../../assets/certificates/cert1.jpg";
+// Fallback/local certificate
+import cert1 from "../../assets/certificates/cert5.jpg";
 
 const fallbackCertificates = [
   {
     id: 1,
-    title: "Startup India Recognition",
+    title: "Udyam Registration Certificate",
     image: cert1,
   },
 ];
@@ -19,24 +19,23 @@ const Certificates = () => {
   const [selectedImg, setSelectedImg] = useState(null);
   const [title, setTitle] = useState("");
 
-  const openModal = (img, title) => {
+  const openModal = (img, t) => {
     setSelectedImg(img);
-    setTitle(title);
+    setTitle(t);
     setShow(true);
   };
 
-  // Fetch certificates from backend (optional)
   useEffect(() => {
     const fetchCertificates = async () => {
       try {
         const response = await fetch("https://your-backend-api.com/api/certificates");
-        if (!response.ok) throw new Error("Network response was not ok");
+        if (!response.ok) throw new Error("Network error");
         const data = await response.json();
         if (Array.isArray(data) && data.length) {
           setCertificates(data);
         }
-      } catch (error) {
-        console.error("Failed to fetch certificates, using fallback", error);
+      } catch (err) {
+        console.error("Using fallback certificates", err);
       } finally {
         setLoading(false);
       }
@@ -48,49 +47,55 @@ const Certificates = () => {
   return (
     <section className="py-5" style={{ backgroundColor: "#F6F5E8" }}>
       <div className="container">
-        {/* HEADER */}
-        <div className="text-center mb-5">
+        {/* Header */}
+        <div className="text-center mb-4 mb-md-5">
           <h2 className="fw-bold">Certificates</h2>
-          <p className="text-muted mb-0">
+          <p className="text-muted mb-0 fs-6 fs-md-5">
             Recognitions and certifications that validate our expertise
           </p>
         </div>
 
-        {/* LOADING */}
+        {/* Loading */}
         {loading && (
-          <div className="text-center">
-            <p>Loading certificates...</p>
+          <div className="text-center py-5">
+            <Spinner animation="border" role="status" />
           </div>
         )}
 
-        {/* GRID */}
-        <div className="row g-4">
+        {/* Grid */}
+        <div className="row g-3 g-md-4">
           {certificates.map((item) => (
-            <div className="col-12 col-sm-6 col-md-4 col-lg-3" key={item.id}>
+            <div
+              className="col-12 col-sm-6 col-md-4 col-lg-3"
+              key={item.id}
+            >
               <div
-                className="card h-100 border-0 shadow-sm text-center certificate-card"
-                onClick={() => openModal(item.image, item.title)}
+                className="card h-100 border-0 shadow-sm text-center"
                 style={{
                   cursor: "pointer",
-                  backgroundColor: "#F6F5E8", // 🎨 CARD BACKGROUND COLOR
-                  // transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                  backgroundColor: "#F6F5E8",
+                  transition: "transform 0.25s ease, box-shadow 0.25s ease",
                 }}
+                onClick={() => openModal(item.image, item.title)}
+                onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.03)")}
+                onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
               >
-                <div className="p-3">
+                <div className="p-3 d-flex align-items-center justify-content-center" style={{ minHeight: 200 }}>
                   <img
                     src={item.image}
                     alt={item.title}
                     className="img-fluid"
-                    style={{ maxHeight: "220px", objectFit: "contain" }}
+                    style={{ maxHeight: 180, objectFit: "contain" }}
                   />
                 </div>
                 <div className="card-body pt-0">
-                  <h6 className="fw-semibold mb-0">{item.title}</h6>
+                  <h6 className="fw-semibold mb-1">{item.title}</h6>
                   {item.logo && (
                     <img
                       src={item.logo}
                       alt={`${item.title} logo`}
-                      style={{ height: "36px", marginTop: "8px" }}
+                      className="img-fluid"
+                      style={{ height: 36 }}
                     />
                   )}
                 </div>
@@ -100,13 +105,20 @@ const Certificates = () => {
         </div>
       </div>
 
-      {/* MODAL */}
-      <Modal show={show} onHide={() => setShow(false)} centered size="lg">
+      {/* Modal */}
+      <Modal show={show} onHide={() => setShow(false)} centered size="xl">
         <Modal.Header closeButton>
-          <Modal.Title>{title}</Modal.Title>
+          <Modal.Title className="fs-6 fs-md-5">{title}</Modal.Title>
         </Modal.Header>
-        <Modal.Body className="p-0">
-          {selectedImg && <img src={selectedImg} alt={title} className="w-100" />}
+        <Modal.Body className="p-2 p-md-3 text-center">
+          {selectedImg && (
+            <img
+              src={selectedImg}
+              alt={title}
+              className="img-fluid"
+              style={{ maxHeight: "80vh", objectFit: "contain" }}
+            />
+          )}
         </Modal.Body>
       </Modal>
     </section>
