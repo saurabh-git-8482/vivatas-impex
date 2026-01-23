@@ -1,6 +1,7 @@
 import { Container, Row, Col, Card } from "react-bootstrap";
 
 import exportImg from "../../assets/about/about-export.jpg";
+import founderImg from "../../assets/about/prajwal.jpeg";
 
 import "./About.css";
 
@@ -108,6 +109,45 @@ const AboutPage = () => {
                 objectFit: "cover",
               }}
             />
+          </Col>
+        </Row>
+
+        {/* ===== FOUNDER SECTION ===== */}
+        <Row className="align-items-center g-4 g-md-5 mb-5">
+          {/* Image — LEFT */}
+          <Col xs={12} md={6} className="text-center">
+            <div className="founder-img-wrapper mx-auto">
+              <img
+                src={founderImg}
+                alt="Prajwal Kharadakar - Founder Vivatas Impex"
+                className="founder-img"
+              />
+            </div>
+          </Col>
+
+          {/* Text Content — RIGHT */}
+          <Col xs={12} md={6} className="founder-text">
+            <h2 className="founder-name">Prajwal Kharadakar</h2>
+
+            <span className="founder-divider"></span>
+
+            <p className="">
+              “My journey as an eximpreneur began with a simple belief: to
+              showcase the immense wealth of India’s culture on the global stage
+              and make it accessible to the world’s largest markets.”
+            </p>
+
+            <p>
+              My guiding values—trust, reliability, and authenticity—have
+              remained unwavering companions. Every product we export carries
+              not just a piece of India’s heritage but also my personal
+              commitment to excellence.
+            </p>
+
+            <p>
+              This dedication to quality and authenticity is at the heart of
+              everything I do and continues to drive our journey forward.
+            </p>
           </Col>
         </Row>
 
