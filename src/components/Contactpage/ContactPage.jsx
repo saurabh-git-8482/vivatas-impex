@@ -78,6 +78,77 @@ const ContactPage = () => {
   if (!contactData) return <div className="text-center py-5">Loading...</div>;
 
   return (
+    <>
+{/* ================= SUPPLIERS SECTION ================= */}
+<section
+  className="py-5"
+  style={{ backgroundColor: "#F6F5E8" }}
+>
+  <div className="container">
+    {/* TITLE */}
+    <div className="text-center mb-4">
+      <h1 className="fw-bold" style={{ color: "#222222" }}>
+        Suppliers
+      </h1>
+      <div
+        style={{
+          width: "80px",
+          height: "3px",
+          backgroundColor: "#C81D25",
+          margin: "10px auto",
+        }}
+      />
+    </div>
+
+    <div className="row align-items-center g-4">
+      {/* LEFT CONTENT */}
+      <div className="col-12 col-md-6">
+        <p style={{ color: "#6B6B6B", lineHeight: "1.8" }}>
+          As merchant exporters, <strong>Vivatas Impex</strong> partners with
+          manufacturers of export-quality products to help them reach global
+          markets. We promote your products and brand across international
+          geographies where demand exists.
+        </p>
+
+        <p style={{ color: "#6B6B6B", lineHeight: "1.8" }}>
+          By acting as your international representative, we simplify market
+          entry, expand your reach, and support long-term business growth. Share
+          your product details with us and let our team handle global
+          opportunities for you.
+        </p>
+
+        <p style={{ color: "#6B6B6B", lineHeight: "1.8" }}>
+          We believe in building strong, long-term partnerships. At Vivatas
+          Impex, we work with our suppliers as{" "}
+          <span style={{ color: "#C81D25", fontWeight: "600" }}>
+            “Partners in Progress”
+          </span>{" "}
+          and help them scale sustainably in international markets.
+        </p>
+
+        <p
+          className="fw-bold mt-3"
+          style={{ color: "#222222" }}
+        >
+          Make <span style={{ color: "#C81D25" }}>Vivatas Impex</span> your
+          trusted export partner.
+        </p>
+      </div>
+
+      {/* RIGHT IMAGE */}
+      <div className="col-12 col-md-6 text-center">
+        <img
+          src="src/assets/ContactPage/image.png"
+          alt="Global Supplier Network"
+          className="img-fluid rounded shadow"
+          style={{ maxHeight: "420px", objectFit: "cover" }}
+        />
+      </div>
+    </div>
+  </div>
+</section>
+
+
     <section className="py-5" style={{ backgroundColor: "#F6F5E8" }}>
       <div className="container px-3 px-md-0">
         {/* PAGE TITLE */}
@@ -100,7 +171,7 @@ const ContactPage = () => {
 
                 <p>📞 {contactData.phone}</p>
                 <p>✉️ {contactData.email}</p>
-                <p>⏰ {contactData.timing}</p>
+                <p> {contactData.timing}</p>
 
                 <div className="d-flex gap-3 mt-3">
                   <a
@@ -273,6 +344,7 @@ const ContactPage = () => {
         </div>
       </div>
     </section>
+    </>
   );
 };
 

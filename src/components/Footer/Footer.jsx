@@ -144,7 +144,7 @@ const Footer = () => {
                   {contactData.email}
                 </a>
               </li>
-              <p>⏰ {contactData.timing}</p>
+              {/* <p>⏰ {contactData.timing}</p> */}
             </ul>
 
             {/* SOCIAL ICONS */}

@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { Modal } from "react-bootstrap";
 
-import cert1 from "../../assets/certificates/cert5.jpg";
+import cert1 from "../../assets/certificates/cert2.jpg";
+// import cert2 from "../../assets/certificates/cert5.jpg";
+
 
 const certificates = [
   {
