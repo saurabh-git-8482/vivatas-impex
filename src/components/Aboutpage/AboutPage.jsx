@@ -2,7 +2,6 @@ import { Container, Row, Col, Card } from "react-bootstrap";
 
 import exportImg from "../../assets/about/about-export.jpg";
 import founderImg from "../../assets/about/image.png";
-import jointDirectorImg from "../../assets/about/vijaya.png";
 
 import "./About.css";
 
@@ -114,94 +113,49 @@ const AboutPage = () => {
         </Row>
 
         {/* ===== FOUNDER SECTION ===== */}
-       <Row className="align-items-center g-4 g-md-5 mb-5">
-  {/* Image — LEFT */}
-  <Col xs={12} md={6} className="text-center">
-    <div className="founder-frame-wrapper">
-      <img
-        src={founderImg}
-        alt="Prajwal Kharadakar - Founder Vivatas Impex"
-        className="founder-photo"
-      />
-    </div>
-  </Col>
-  {/* Text — RIGHT */}
-  <Col xs={12} md={6} className="founder-text">
-    <h2 className="founder-name">Prajwal Kharadakar</h2>
-    <span className="founder-divider"></span>
-    <p className="fw-semibold text-muted mb-3">
-     Director – VIVATAS IMPEX
-    </p>
-
-
-    <p>
-      “My journey as an eximpreneur began with a simple belief: to showcase the
-      immense wealth of India’s culture on the global stage and make it accessible
-      to the world’s largest markets.”
-    </p>
-
-    <p>
-      My guiding values—trust, reliability, and authenticity—have remained
-      unwavering companions. Every product we export carries not just a piece of
-      India’s heritage but also my personal commitment to excellence.
-    </p>
-
-    <p>
-      This dedication to quality and authenticity is at the heart of everything I
-      do and continues to drive our journey forward.
-    </p>
-  </Col>
-</Row>
-{/* ===== JOINT MANAGING DIRECTOR SECTION ===== */}
-<Row className="align-items-center g-4 g-md-5 mb-5 flex-md-row-reverse">
-  {/* Image — RIGHT on Desktop, TOP on Mobile */}
-  <Col xs={12} md={6} className="text-center">
-    <div className="founder-frame-wrapper">
-      <img
-        src={jointDirectorImg}
-        alt="Vijaya Kharadkar - Joint Managing Director Vivatas Impex"
-        className="founder-photo"
-      />
-    </div>
-  </Col>
-
-  {/* Text — LEFT */}
-  <Col xs={12} md={6} className="founder-text">
-    <h2 className="founder-name">Vijaya Kharadkar</h2>
-    <span className="founder-divider"></span>
-
-    <p className="fw-semibold text-muted mb-3">
-      Joint Managing Director – VIVATAS IMPEX
-    </p>
-
-    <p>
-      Vijaya Kharadkar is the Joint Managing Director of <strong>VIVATAS IMPEX</strong>,
-      an India-based import–export and merchant trading company specializing in Indian
-      agricultural products, processed foods, frozen foods, and commodity exports.
-      She plays a key role in supporting end-to-end export operations including supplier
-      coordination, quality control, export documentation, shipment planning, and logistics
-      execution.
-    </p>
-
-    <p>
-      She works closely with international buyers and suppliers to ensure quality
-      Indian-origin products, compliance with global export standards, competitive pricing,
-      and timely deliveries.
-    </p>
-
-    <p>
-      Serving B2B clients across the UAE, Russia, USA, and Europe, she contributes to
-      building reliable, transparent, and long-term global trade partnerships, strengthening
-      the company’s position as a trusted Indian exporter.
-    </p>
-  </Col>
-</Row>
-
-
         <section
           className="values-section py-5"
           // style={{ backgroundColor: "#f9f7f0" }}
         >
+          <Row className="align-items-center g-4 g-md- mb-">
+            {/* Image — LEFT */}
+            <Col xs={12} md={6} className="text-center">
+              <div className="founder-frame-wrapper">
+                <img
+                  src={founderImg}
+                  alt="Prajwal Kharadakar - Founder Vivatas Impex"
+                  className="founder-photo"
+                />
+              </div>
+            </Col>
+            {/* Text — RIGHT */}
+            <Col xs={12} md={6} className="founder-text">
+              <h2 className="founder-name">Prajwal Kharadakar</h2>
+              <span className="founder-divider"></span>
+              <p className="fw-semibold text-muted mb-3">
+                Director – VIVATAS IMPEX
+              </p>
+
+              <p>
+                “My journey as an eximpreneur began with a simple belief: to
+                showcase the immense wealth of India’s culture on the global
+                stage and make it accessible to the world’s largest markets.”
+              </p>
+
+              <p>
+                My guiding values—trust, reliability, and authenticity—have
+                remained unwavering companions. Every product we export carries
+                not just a piece of India’s heritage but also my personal
+                commitment to excellence.
+              </p>
+
+              <p>
+                This dedication to quality and authenticity is at the heart of
+                everything I do and continues to drive our journey forward.
+              </p>
+            </Col>
+          </Row>
+
           <Container>
             <h2 className="text-center mb-5 core-values-heading">
               OUR CORE VALUES

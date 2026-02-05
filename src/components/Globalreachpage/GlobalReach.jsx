@@ -129,23 +129,7 @@ const GlobalReach = () => {
         </Container>
       </section>
 
-      {/* CTA SECTION */}
-      {/* <section className="partner-section" style={{ backgroundColor: "#F6F5E8" }}>
-        <Container>
-          <div className="partner-content mx-0px">
-            <h2 className="partner-heading">Partner With Vivatas Impex</h2>
-            <p className="partner-subtext">
-              Delivering frozen foods, dehydrated products, and handmade carpets
-              worldwide with reliability and trust.
-            </p>
-            <p className="partner-text">
-              At <strong>Vivatas Impex</strong>, we focus on building long-term,
-              transparent, and mutually beneficial partnerships across global
-              markets.
-            </p>
-          </div>
-        </Container>
-      </section> */}
+     
 
       {/* REVIEWS SECTION */}
       <section className="py-5" style={{ backgroundColor: "#F6F5E8" }}>

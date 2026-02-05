@@ -123,7 +123,7 @@ const Footer = () => {
                 📍HEAD OFFICE : f 01 umbarda bazar nearby zp school main road
                 subdistrict:- karanja lad district washim, pin 444105
               </li>
-              <li> {contactData.description}</li>
+              <li>📍BRANCH OFFICE : {contactData.address}</li>
 
               <li className="mb-1">
                 📞{" "}

@@ -67,7 +67,7 @@ const Navbar = () => {
     fetchData();
   }, []);
 
-  if (!contactData) return <div>Loading…</div>;
+  // if (!contactData) return <div>Loading…</div>;
 
   return (
     <nav
@@ -228,10 +228,11 @@ const Navbar = () => {
 
             <li className="nav-item ms-lg-2">
               <a
-                href={`tel:${contactData.phone}`}
+              href={`tel:${contactData?.phone ?? ""}`}
+
                 className="btn btn-outline-danger px-1 py-0 fw-bold"
               >
-                CALL NOW
+                CALL NOW 📞
               </a>
             </li>
             

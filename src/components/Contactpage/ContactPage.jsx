@@ -25,7 +25,7 @@ const ContactPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(`${baseURL}/contact/submit`, {
+      await axios.post(`${baseURL}/contact-enquiry`, {
         ...formData,
         domain: "vivatasimpex.com",
       });
@@ -154,7 +154,7 @@ const ContactPage = () => {
         {/* PAGE TITLE */}
         <div className="text-center mb-4 mb-md-5">
           <h2 className="fw-bold">{contactData.pageTitle || "Contact Us"}</h2>
-          <p className="text-muted">{contactData.description}</p>
+          <p className="text-muted">{contactData.address}</p>
         </div>
 
         <div className="row g-4">
@@ -331,7 +331,7 @@ const ContactPage = () => {
               <iframe
                 title="Location Map"
                 src={`https://www.google.com/maps?q=${encodeURIComponent(
-                  contactData.description
+                  contactData.address
                 )}&output=embed`}
                 width="100%"
                 height="350"

@@ -89,14 +89,14 @@ function ProductCard({ product }) {
   const capitalizeFirst = (str = "") =>
     str.charAt(0).toUpperCase() + str.slice(1);
 
-  const title = getAttr("title") || "Product";
-  const description = truncateText(getAttr("description"));
+  const Title = getAttr("Title") || "Product";
+  const Description = truncateText(getAttr("Description"));
   const usage = getAttr("usage");
 
   // ================= ACTIONS =================
   const handleGetQuote = () => {
     navigate("/contact", {
-      state: { productId: product._id, productTitle: title },
+      state: { productId: product._id, productTitle: Title },
     });
   };
 
@@ -113,12 +113,12 @@ function ProductCard({ product }) {
     const first = media[0];
 
     if (first.type === "image") {
-      return <img src={first.src} alt={title} />;
+      return <img src={first.src} alt={Title} />;
     }
 
     return (
       <div className="video-thumbnail-wrapper">
-        <img src={first.thumbnail} alt={title} />
+        <img src={first.thumbnail} alt={Title} />
         <div className="play-overlay">
           <div className="play-button">▶</div>
         </div>
@@ -139,20 +139,20 @@ function ProductCard({ product }) {
         </div>
 
         <div className="product-content">
-          <h5 className="product-title">{title}</h5>
-          <p className="product-desc">{description}</p>
+          <h5 className="product-title">{Title}</h5>
+          <p className="product-desc">{Description}</p>
 
-          {usage && (
+          {/* {usage && (
             <div className="product-usage">
               <strong>Usage:</strong> {usage}
             </div>
-          )}
+          )} */}
 
           <div className="product-attrs">
             {product.attributes
               ?.filter(
                 (a) =>
-                  !["title", "description", "usage"].includes(a.attributeKey),
+                  !["Title", "Description", "usage"].includes(a.attributeKey),
               )
               .map((attr) =>
                 attr.values.map((val, i) => (
@@ -174,7 +174,7 @@ function ProductCard({ product }) {
       {/* ================= MODAL ================= */}
       <Modal show={show} onHide={handleClose} centered size="lg">
         <Modal.Header closeButton>
-          <Modal.Title>{title}</Modal.Title>
+          <Modal.Title>{Title}</Modal.Title>
         </Modal.Header>
 
         <Modal.Body className="p-0">
@@ -190,7 +190,7 @@ function ProductCard({ product }) {
               <Carousel.Item key={idx}>
                 <div className="carousel-media">
                   {item.type === "image" ? (
-                    <img src={item.src} alt={title} />
+                    <img src={item.src} alt={Title} />
                   ) : (
                     <div
                       style={{

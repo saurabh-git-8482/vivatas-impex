@@ -1,25 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Modal } from "react-bootstrap";
+import axios from "axios";
 
-import cert1 from "../../assets/certificates/cert2.jpg";
-// import cert2 from "../../assets/certificates/cert5.jpg";
-
-
-const certificates = [
-  {
-    id: 1,
-    title: "Udyam Registration Certificate",
-    image: cert1,
-  },
-  // Add more certificates here when needed
-  // {
-  //   id: 2,
-  //   title: "ISO Certification",
-  //   image: cert2,
-  // },
-];
+const baseURL = import.meta.env.VITE_API_BASE_URL;
 
 const Certificates = () => {
+  const [certificates, setCertificates] = useState([]);
+  const [loading, setLoading] = useState(true);
+
   const [show, setShow] = useState(false);
   const [selectedImg, setSelectedImg] = useState(null);
   const [title, setTitle] = useState("");
@@ -29,6 +17,50 @@ const Certificates = () => {
     setTitle(t);
     setShow(true);
   };
+
+  /* ================= FETCH CERTIFICATES ================= */
+  useEffect(() => {
+    const fetchCertificates = async () => {
+      try {
+        const res = await axios.get(`${baseURL}/certificates`, {
+          params: {
+            domainName: "vivatasimpex.com",
+          },
+        });
+
+        // ✅ SAFE ARRAY EXTRACTION
+        let certArray = [];
+
+        if (Array.isArray(res.data)) {
+          certArray = res.data;
+        } else if (Array.isArray(res.data.data)) {
+          certArray = res.data.data;
+        }
+
+        // ✅ IMAGE URL NORMALIZATION
+        const formatted = certArray.map((item) => ({
+          id: item._id,
+          title: item.title,
+          image: item.image?.startsWith("http")
+            ? item.image
+            : `${baseURL}/${item.image}`,
+        }));
+
+        setCertificates(formatted);
+      } catch (err) {
+        console.error("Certificate fetch failed:", err);
+        setCertificates([]);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchCertificates();
+  }, []);
+
+  if (loading) {
+    return <div className="text-center py-5">Loading...</div>;
+  }
 
   return (
     <section className="py-5" style={{ backgroundColor: "#F6F5E8" }}>
@@ -80,6 +112,9 @@ const Certificates = () => {
                       maxHeight: "160px",
                       width: "100%",
                       objectFit: "contain",
+                    }}
+                    onError={(e) => {
+                      e.target.style.display = "none";
                     }}
                   />
                 </div>
