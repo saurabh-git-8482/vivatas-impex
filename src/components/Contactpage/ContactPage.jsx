@@ -25,9 +25,9 @@ const ContactPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post(`${baseURL}/contact-enquiry`, {
+      await axios.post(`${baseURL}/contact`, {
         ...formData,
-        domain: "vivatasimpex.com",
+        domainName: "vivatasimpex.com",
       });
 
       setSuccess(true);
