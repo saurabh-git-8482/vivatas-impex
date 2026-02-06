@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import contactImg from "../../assets/ContactPage/image.png";
+
 
 const ContactPage = () => {
   const baseURL = import.meta.env.VITE_API_BASE_URL;
@@ -137,13 +139,14 @@ const ContactPage = () => {
 
       {/* RIGHT IMAGE */}
       <div className="col-12 col-md-6 text-center">
-        <img
-          src="src/assets/ContactPage/image.png"
-          alt="Global Supplier Network"
-          className="img-fluid rounded shadow"
-          style={{ maxHeight: "420px", objectFit: "cover" }}
-        />
-      </div>
+  <img
+    src={contactImg}
+    alt="Global Supplier Network"
+    className="img-fluid rounded shadow"
+    style={{ maxHeight: "420px", objectFit: "cover" }}
+  />
+</div>
+
     </div>
   </div>
 </section>
