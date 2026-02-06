@@ -1,9 +1,12 @@
 import { Container, Row, Col, Card } from "react-bootstrap";
 
 import exportImg from "../../assets/about/about-export.jpg";
-import founderImg from "../../assets/about/image.png";
+import founderImg from "../../assets/about/founder.jpg";
 
 import "./About.css";
+
+
+
 
 const values = [
   {
@@ -115,7 +118,6 @@ const AboutPage = () => {
         {/* ===== FOUNDER SECTION ===== */}
         <section
           className="values-section py-5"
-          // style={{ backgroundColor: "#f9f7f0" }}
         >
           <Row className="align-items-center g-4 g-md- mb-">
             {/* Image — LEFT */}
@@ -132,15 +134,15 @@ const AboutPage = () => {
             <Col xs={12} md={6} className="founder-text">
               <h2 className="founder-name">Prajwal Kharadakar</h2>
               <span className="founder-divider"></span>
-              <p className="fw-semibold text-muted mb-3">
+              <p className="fw-semibold text-muted ">
                 Director – VIVATAS IMPEX
               </p>
 
-              <p>
+           
                 “My journey as an eximpreneur began with a simple belief: to
                 showcase the immense wealth of India’s culture on the global
                 stage and make it accessible to the world’s largest markets.”
-              </p>
+             
 
               <p>
                 My guiding values—trust, reliability, and authenticity—have

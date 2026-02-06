@@ -226,10 +226,10 @@
 
 .founder-img {
   width: 100%;
-  height: 80%;
+  height: 70%;
   object-fit: cover;
   /* object-position: top center; */
-  margin-top: 100px;
+  margin-bottom: 200px;
 }
 
 /* Text Styling */
@@ -242,7 +242,7 @@
 
 .founder-name {
   font-weight: 700;
-  color: #dc3545;
+  color: #d92234;
 }
 
 .founder-divider {
@@ -254,7 +254,7 @@
 
 .founder-quote {
   font-style: italic;
-  color: #555;
+  color: #e31313;
   margin-bottom: 16px;
   line-height: 1.6;
 }
@@ -315,15 +315,16 @@
   position: relative;
   width: 100%;
   max-width: 420px;
-  aspect-ratio: 3 / 4;
+  /* aspect-ratio: 3 / 4; */
   margin: auto;
 }
 
 .founder-photo {
   width: 100%;
-  height: 70%;
+  height: 60%;
   object-fit: cover;
   border-radius: 12px;
+  margin-bottom: 200px;
 }
 
 .frame-overlay {
@@ -343,7 +344,7 @@
 /* Name + Role */
 .founder-name {
   font-weight: 700;
-  color: #0b3c6d;
+  color:#e3485d ;
 }
 
 .founder-role {

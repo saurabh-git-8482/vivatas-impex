@@ -68,10 +68,10 @@ const ContactPage = () => {
    if (!contactData) return <div>Loading…</div>;
 
   const socialLinks = {
-    facebook: "https://www.facebook.com/profile.php",
+    facebook: "https://www.facebook.com/share/1Aef1z1xJw/",
     instagram: "https://www.instagram.com/vivatasimpex?igsh=dThneWNmM2w2aXNp",
     youtube: "https://www.youtube.com/@vivatasimpex",
-    whatsapp: `https://wa.me/${contactData.phone}`,
+    whatsapp: `https://wa.me/9175861356`,
     linkedin: "http://www.linkedin.com/in/vivatas-impex",
   };
 

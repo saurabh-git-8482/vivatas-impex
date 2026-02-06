@@ -94,7 +94,7 @@ const HomePage = () => {
                 <div className="mb-5 d-flex gap-3 flex-wrap justify-content-center justify-content-md-start">
                   <button
                     onClick={() =>
-                      navigate("/products/artisan-handwoven-carpets")
+                      navigate("/products/premium-fresh-vegetables-&-frozen-foods")
                     }
                     className="btn btn-danger fw-bold px-4"
                   >

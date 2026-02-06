@@ -30,10 +30,10 @@ const Footer = () => {
   if (!contactData) return <div>Loading…</div>;
   const socialLinks = {
     facebook:
-      "https://www.facebook.com/people/Vivatas-Impex/pfbid02NVgJxJNC887uW2idQd1ZDsdxcYTUGF3NZwFyXA92DF7K7qkSEa31jW2foWqM1g8sl/",
+      "https://www.facebook.com/share/1Aef1z1xJw/",
     instagram: "https://www.instagram.com/vivatasimpex?igsh=dThneWNmM2w2aXNp",
     youtube: "https://www.youtube.com/@vivatasimpex",
-    whatsapp: `https://wa.me/${contactData.phone}`,
+    whatsapp: `https://wa.me/9175861356`,
 
     linkedin: "http://www.linkedin.com/in/vivatas-impex",
   };
@@ -78,7 +78,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link
-                  to="/products/artisan-handwoven-carpets"
+                  to="/products/premium-fresh-vegetables-&-frozen-foods"
                   className="text-light text-decoration-none"
                 >
                   Products
