@@ -205,7 +205,9 @@ const Certificates = () => {
         </div>
 
         {/* ===== Certificate Grid ===== */}
-        <div className="row g-4">
+        <div className={`row g-4 justify-content-center ${
+    certificates.length <= 2 ? "justify-content-center" : ""
+  }`}>
           {certificates.map((item) => (
             <div
               key={item.id}

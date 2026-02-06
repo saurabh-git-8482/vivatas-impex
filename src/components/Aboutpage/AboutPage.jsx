@@ -119,7 +119,7 @@ const AboutPage = () => {
         <section
           className="values-section py-5"
         >
-          <Row className="align-items-center g-4 g-md- mb-">
+          <Row className="align-items-center g-4">
             {/* Image — LEFT */}
             <Col xs={12} md={6} className="text-center">
               <div className="founder-frame-wrapper">
@@ -159,7 +159,7 @@ const AboutPage = () => {
           </Row>
 
           <Container>
-            <h2 className="text-center mb-5 core-values-heading">
+            <h2 className="text-center mb-5 mt-5 core-values-heading">
               OUR CORE VALUES
             </h2>
             <Row className="g-4 justify-content-center">
@@ -183,7 +183,7 @@ const AboutPage = () => {
         </section>
 
         {/* ===== MISSION & VISION ===== */}
-        <Row className="g-4 mt-4 justify-content-center">
+        <Row className="g-3 mt-4 justify-content-center">
           {/* OUR VISION CARD */}
           <Col xs={12} md={6}>
             <Card className="vision-mission-card h-100">
