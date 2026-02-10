@@ -27,7 +27,6 @@ const Footer = () => {
     fetchData();
   }, []);
 
-  if (!contactData) return <div>Loading…</div>;
   const socialLinks = {
     facebook: "https://www.facebook.com/share/1Aef1z1xJw/",
     instagram: "https://www.instagram.com/vivatasimpex?igsh=dThneWNmM2w2aXNp",
@@ -90,11 +89,6 @@ const Footer = () => {
                   Contact
                 </Link>
               </li>
-              {/* <li>
-                <Link to="/gallery" className="text-light text-decoration-none">
-                  Gallary
-                </Link>
-              </li> */}
             </ul>
           </div>
 
@@ -119,28 +113,27 @@ const Footer = () => {
                 📍HEAD OFFICE : F 01 Umbarda Bazar Near Z P School Main Road
                 Sub. District - Karanja Lad District - Washim, (444105)
               </li>
-              <li>📍BRANCH OFFICE : {contactData.address}</li>
+              <li className="mb-1">📍ADDRESS : {contactData?.address}</li>
 
               <li className="mb-1">
                 📞{" "}
                 <a
-                  href={`tel:${contactData.phone}`}
+                  href={`tel:${contactData?.phone}`}
                   className="text-light text-decoration-none"
                 >
-                  {contactData.phone}
+                  {contactData?.phone}
                 </a>
               </li>
 
               <li className="mb-1">
                 ✉️{" "}
                 <a
-                  href={`mailto:${contactData.email}`}
+                  href={`mailto:${contactData?.email}`}
                   className="text-light text-decoration-none"
                 >
-                  {contactData.email}
+                  {contactData?.email}
                 </a>
               </li>
-              {/* <p>⏰ {contactData.timing}</p> */}
             </ul>
 
             {/* SOCIAL ICONS */}

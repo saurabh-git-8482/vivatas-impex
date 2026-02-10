@@ -11,11 +11,13 @@ import BlogPage from "./components/Blogpage/BlogPage";
 import GlobalReach from "./components/Globalreachpage/GlobalReach";
 import HomePage from "./components/homepage/HomePage";
 import Certificates from "./components/Aboutpage/CertificatePage";
+import { ContactProvider } from "./context/ContactContext";
 
 
 const App = () => {
   return (
     <BrowserRouter>
+    <ContactProvider>
       <Navbar />
 <ScrollToTop/>
       <Routes>
@@ -32,6 +34,7 @@ const App = () => {
       </Routes>
 
       <Footer />
+      </ContactProvider>
     </BrowserRouter>
   );
 };

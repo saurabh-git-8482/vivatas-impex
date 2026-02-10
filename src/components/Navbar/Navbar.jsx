@@ -47,25 +47,7 @@ const Navbar = () => {
     }
   };
 
-  const baseURL = import.meta.env.VITE_API_BASE_URL;
-  const [contactData, setContactData] = useState(null);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await axios.get(`${baseURL}/contact-page`, {
-          params: {
-            domainName: "vivatasimpex.com",
-          },
-        });
-        setContactData(res.data);
-      } catch (err) {
-        console.error("Error loading contact page data:", err);
-      }
-    };
-
-    fetchData();
-  }, []);
+ 
 
   // if (!contactData) return <div>Loading…</div>;
 
@@ -118,39 +100,6 @@ const Navbar = () => {
             </li>
 
 
-            {/* ===== ABOUT DROPDOWN ===== */}
-            {/* <li className="nav-item dropdown">
-              <span
-                className="nav-link dropdown-toggle fw-bold"
-                role="button"
-                onClick={() => setIsProductOpen(false)}
-                data-bs-toggle="dropdown"
-              >
-                ABOUT
-              </span>
-
-              <ul className="dropdown-menu shadow-sm border-0">
-                <li>
-                  <NavLink
-                    to="/about"
-                    className="dropdown-item"
-                    onClick={() => handleNavClick("/about")}
-                  >
-                    About Us
-                  </NavLink>
-                </li>
-
-                <li>
-                  <NavLink
-                    to="/certificates"
-                    className="dropdown-item"
-                    onClick={() => handleNavClick("/certificates")}
-                  >
-                    Certificates
-                  </NavLink>
-                </li>
-              </ul>
-            </li> */}
 
             {/* ===== PRODUCTS DROPDOWN ===== */}
             <li className={`nav-item dropdown ${isProductOpen ? "show" : ""}`}>
@@ -187,15 +136,7 @@ const Navbar = () => {
               </ul>
             </li>
 
-            {/* <li className="nav-item">
-              <NavLink
-                to="/gallery"
-                className="nav-link fw-bold"
-                onClick={() => handleNavClick("/gallery")}
-              >
-                GALLERY
-              </NavLink>
-            </li> */}
+           
             <li className="nav-item">
               <NavLink
                 to="/blog"
@@ -226,13 +167,12 @@ const Navbar = () => {
               </NavLink>
             </li>
 
-            <li className="nav-item ms-lg-2">
+             <li className="nav-item ms-lg-2">
               <a
-              href={`tel:${contactData?.phone ?? ""}`}
-
+                href="tel: +91 9175861356"
                 className="btn btn-outline-danger px-1 py-0 fw-bold"
               >
-                CALL NOW 📞
+                CALL NOW
               </a>
             </li>
             

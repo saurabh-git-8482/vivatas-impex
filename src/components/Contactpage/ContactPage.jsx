@@ -1,10 +1,17 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import axios from "axios";
+import { useContactData } from "../../context/ContactContext";
 import contactImg from "../../assets/ContactPage/image.png";
-
 
 const ContactPage = () => {
   const baseURL = import.meta.env.VITE_API_BASE_URL;
+
+  // ✅ GLOBAL CONTACT DATA (FROM CONTEXT)
+  const contactData = useContactData();
+
+  // ✅ SAFE DESTRUCTURING
+  const { pageTitle, address, phone, email, description, timing } =
+    contactData || {};
 
   const [formData, setFormData] = useState({
     name: "",
@@ -16,7 +23,6 @@ const ContactPage = () => {
   });
 
   const [success, setSuccess] = useState(false);
-  const [contactData, setContactData] = useState(null);
 
   /* ================= FORM ================= */
   const handleChange = (e) => {
@@ -49,134 +55,96 @@ const ContactPage = () => {
     }
   };
 
-  /* ================= CONTACT PAGE API ================= */
-  useEffect(() => {
-    const fetchContactPage = async () => {
-      try {
-        const res = await axios.get(`${baseURL}/contact-page`, {
-          params: {
-            domainName: "vivatasimpex.com",
-          },
-        });
-
-        setContactData(res.data);
-      } catch (err) {
-        console.error("Error loading contact page data:", err);
-      }
-    };
-
-    fetchContactPage();
-  }, []);
-   if (!contactData) return <div>Loading…</div>;
-
   const socialLinks = {
     facebook: "https://www.facebook.com/share/1Aef1z1xJw/",
     instagram: "https://www.instagram.com/vivatasimpex?igsh=dThneWNmM2w2aXNp",
     youtube: "https://www.youtube.com/@vivatasimpex",
-    whatsapp: `https://wa.me/9175861356`,
+    whatsapp: "https://wa.me/9175861356",
     linkedin: "http://www.linkedin.com/in/vivatas-impex",
   };
 
-  if (!contactData) return <div className="text-center py-5">Loading...</div>;
-
   return (
     <>
-{/* ================= SUPPLIERS SECTION ================= */}
-<section
-  className="py-5"
-  style={{ backgroundColor: "#F6F5E8" }}
->
-  <div className="container">
-    {/* TITLE */}
-    <div className="text-center mb-4">
-      <h1 className="fw-bold" style={{ color: "#222222" }}>
-        Suppliers
-      </h1>
-      <div
-        style={{
-          width: "80px",
-          height: "3px",
-          backgroundColor: "#C81D25",
-          margin: "10px auto",
-        }}
-      />
-    </div>
-
-    <div className="row align-items-center g-4">
-      {/* LEFT CONTENT */}
-      <div className="col-12 col-md-6">
-        <p style={{ color: "#6B6B6B", lineHeight: "1.8" }}>
-          As merchant exporters, <strong>Vivatas Impex</strong> partners with
-          manufacturers of export-quality products to help them reach global
-          markets. We promote your products and brand across international
-          geographies where demand exists.
-        </p>
-
-        <p style={{ color: "#6B6B6B", lineHeight: "1.8" }}>
-          By acting as your international representative, we simplify market
-          entry, expand your reach, and support long-term business growth. Share
-          your product details with us and let our team handle global
-          opportunities for you.
-        </p>
-
-        <p style={{ color: "#6B6B6B", lineHeight: "1.8" }}>
-          We believe in building strong, long-term partnerships. At Vivatas
-          Impex, we work with our suppliers as{" "}
-          <span style={{ color: "#C81D25", fontWeight: "600" }}>
-            “Partners in Progress”
-          </span>{" "}
-          and help them scale sustainably in international markets.
-        </p>
-
-        <p
-          className="fw-bold mt-3"
-          style={{ color: "#222222" }}
-        >
-          Make <span style={{ color: "#C81D25" }}>Vivatas Impex</span> your
-          trusted export partner.
-        </p>
-      </div>
-
-      {/* RIGHT IMAGE */}
-      <div className="col-12 col-md-6 text-center">
-  <img
-    src={contactImg}
-    alt="Global Supplier Network"
-    className="img-fluid rounded shadow"
-    style={{ maxHeight: "420px", objectFit: "cover" }}
-  />
-</div>
-
-    </div>
-  </div>
-</section>
-
-
-    <section className="py-5" style={{ backgroundColor: "#F6F5E8" }}>
-      <div className="container px-3 px-md-0">
-        {/* PAGE TITLE */}
-        <div className="text-center mb-4 mb-md-5">
-          <h2 className="fw-bold">{contactData.pageTitle || "Contact Us"}</h2>
-          <p className="text-muted">{contactData.address}</p>
-        </div>
-
-        <div className="row g-4">
-          {/* ================= LEFT CARD (UNCHANGED UI) ================= */}
-          <div className="col-12 col-md-5">
+      {/* ================= SUPPLIERS SECTION ================= */}
+      <section className="py-5" style={{ backgroundColor: "#F6F5E8" }}>
+        <div className="container">
+          <div className="text-center mb-4">
+            <h1 className="fw-bold" style={{ color: "#222222" }}>
+              Suppliers
+            </h1>
             <div
-              className="card shadow-sm h-100"
-              style={{ backgroundColor: "#F6F5E8" }}
-            >
-              <div className="card-body">
-                <h5 className="fw-bold mb-3">Vivatas Impex</h5>
+              style={{
+                width: "80px",
+                height: "3px",
+                backgroundColor: "#C81D25",
+                margin: "10px auto",
+              }}
+            />
+          </div>
 
-                <p>{contactData.description}</p>
+          <div className="row align-items-center g-4">
+            <div className="col-12 col-md-6">
+              <p style={{ color: "#6B6B6B", lineHeight: "1.8" }}>
+                As merchant exporters, <strong>Vivatas Impex</strong> partners
+                with manufacturers of export-quality products to help them reach
+                global markets. We promote your products and brand across
+                international geographies where demand exists.
+              </p>
 
-                <p>📞 {contactData.phone}</p>
-                <p>✉️ {contactData.email}</p>
-                <p> {contactData.timing}</p>
+              <p style={{ color: "#6B6B6B", lineHeight: "1.8" }}>
+                By acting as your international representative, we simplify
+                market entry, expand your reach, and support long-term business
+                growth. Share your product details with us and let our team
+                handle global opportunities for you.
+              </p>
 
-                <div className="d-flex gap-3 mt-3">
+              <p style={{ color: "#6B6B6B", lineHeight: "1.8" }}>
+                We believe in building strong, long-term partnerships. At
+                Vivatas Impex, we work with our suppliers as{" "}
+                <span style={{ color: "#C81D25", fontWeight: "600" }}>
+                  “Partners in Progress”
+                </span>{" "}
+                and help them scale sustainably in international markets.
+              </p>
+
+              <p className="fw-bold mt-3" style={{ color: "#222222" }}>
+                Make <span style={{ color: "#C81D25" }}>Vivatas Impex</span> your
+                trusted export partner.
+              </p>
+            </div>
+
+            <div className="col-12 col-md-6 text-center">
+              <img
+                src={contactImg}
+                alt="Global Supplier Network"
+                className="img-fluid rounded shadow"
+                style={{ maxHeight: "420px", objectFit: "cover" }}
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ================= CONTACT SECTION ================= */}
+      <section className="py-5" style={{ backgroundColor: "#F6F5E8" }}>
+        <div className="container px-3 px-md-0">
+          <div className="text-center mb-4 mb-md-5">
+            <h2 className="fw-bold">{pageTitle || "Contact Us"}</h2>
+            <p className="text-muted">{address}</p>
+          </div>
+
+          <div className="row g-4">
+            {/* LEFT CARD */}
+            <div className="col-12 col-md-5">
+              <div className="card shadow-sm h-100" style={{ backgroundColor: "#F6F5E8" }}>
+                <div className="card-body">
+                  <h5 className="fw-bold mb-3">Vivatas Impex</h5>
+
+                  <p>{description}</p>
+                  <p>📞 {phone}</p>
+                  <p>✉️ {email}</p>
+                  <p>{timing}</p>
+                  <div className="d-flex gap-3 mt-3">
                   <a
                     href={socialLinks.facebook}
                     target="_blank"
@@ -220,26 +188,37 @@ const ContactPage = () => {
                     <i className="bi bi-linkedin"></i>
                   </a>
                 </div>
+
+                  {/* <div className="d-flex gap-3 mt-3">
+                    {Object.entries(socialLinks).map(([key, link]) => (
+                      <a
+                        key={key}
+                        href={link}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="fs-4"
+                      >
+                        <i className={`bi bi-${key}`}></i>
+                      </a>
+                    ))}
+                  </div> */}
+                </div>
               </div>
             </div>
-          </div>
 
-          {/* ================= RIGHT FORM (UNCHANGED UI) ================= */}
-          <div className="col-12 col-md-7">
-            <div
-              className="card shadow-sm"
-              style={{ backgroundColor: "#F6F5E8" }}
-            >
-              <div className="card-body">
-                <h5 className="fw-bold mb-3">Send Us an Enquiry</h5>
+            {/* RIGHT FORM */}
+            <div className="col-12 col-md-7">
+              <div className="card shadow-sm" style={{ backgroundColor: "#F6F5E8" }}>
+                <div className="card-body">
+                  <h5 className="fw-bold mb-3">Send Us an Enquiry</h5>
 
-                {success && (
-                  <div className="alert alert-success">
-                    Your enquiry has been submitted successfully!
-                  </div>
-                )}
+                  {success && (
+                    <div className="alert alert-success">
+                      Your enquiry has been submitted successfully!
+                    </div>
+                  )}
 
-                <form onSubmit={handleSubmit}>
+                  <form onSubmit={handleSubmit}>
                   <div className="row g-3">
                     <div className="col-md-6">
                       <input
@@ -320,33 +299,32 @@ const ContactPage = () => {
                     </div>
                   </div>
                 </form>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        {/* MAP */}
-        {/* MAP (DYNAMIC FROM BACKEND) */}
-        {/* MAP (ADDRESS → MAP AUTO) */}
-        <div className="row mt-5">
-          <div className="col-12">
-            <div className="card shadow-sm">
-              <iframe
-                title="Location Map"
-                src={`https://www.google.com/maps?q=${encodeURIComponent(
-                  contactData.address
-                )}&output=embed`}
-                width="100%"
-                height="350"
-                style={{ border: 0 }}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
+          {/* MAP */}
+          {address && (
+            <div className="row mt-5">
+              <div className="col-12">
+                <div className="card shadow-sm">
+                  <iframe
+                    title="Location Map"
+                    src={`https://www.google.com/maps?q=${encodeURIComponent(
+                      address
+                    )}&output=embed`}
+                    width="100%"
+                    height="350"
+                    style={{ border: 0 }}
+                    loading="lazy"
+                  />
+                </div>
+              </div>
             </div>
-          </div>
+          )}
         </div>
-      </div>
-    </section>
+      </section>
     </>
   );
 };
